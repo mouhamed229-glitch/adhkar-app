@@ -1,0 +1,23 @@
+{
+  "id": "./",
+  "name": "أذكار الصباح والمساء",
+  "short_name": "أذكار",
+  "description": "أذكار الصباح والمساء من حصن المسلم مع الترجمة الفرنسية",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F8F3E6",
+  "theme_color": "#9C7326",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["lifestyle", "education", "utilities"],
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ],
+  "screenshots": [
+    {"src": "screenshots/matin.jpg", "sizes": "720x1495", "type": "image/jpeg", "form_factor": "narrow", "label": "Adhkar du matin"},
+    {"src": "screenshots/soir.jpg", "sizes": "720x1495", "type": "image/jpeg", "form_factor": "narrow", "label": "Adhkar du soir"}
+  ]
+}

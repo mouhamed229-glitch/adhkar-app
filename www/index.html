@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#9C7326" id="themeColorMeta">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="أذكار">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="description" content="أذكار الصباح والمساء من حصن المسلم — مع الترجمة الفرنسية — يعمل بدون إنترنت">
+<title>أذكار الصباح والمساء</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" sizes="152x152" href="data:image/png;base64,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">
+<style>
+/* ── POLICES EMBARQUÉES ── */
+
+
+
+/* ── TOKENS ── */
+:root{
+  --bg:#F8F3E6;--bg2:#FFFFFF;--bg3:#F1E8D2;
+  --gold:#9C7326;--gold2:#6E4E17;--gold3:#C79A3F;
+  --ink:#211605;--ink2:#5E4A32;--ink3:#9C8768;
+  --green:#215A3C;--green2:#EBF5EF;--green3:#BFE0CC;
+  --dawn:#B0611F;--dawn2:#FBE9D8;
+  --dusk:#463878;--dusk2:#EAE5F8;
+  --border:#E4D7B6;--shadow:rgba(70,48,10,.12);
+  --nav-h:80px;
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-t:env(safe-area-inset-top,0px);
+  /* ── Palette "bijou" — nav & FAB en encre profonde, accents or ── */
+  --jewel-bg:#1C1206;--jewel-bg2:#2A1C0C;--jewel-ink:#F4E8C8;--jewel-ink-dim:#B79E72;
+  --jewel-gold:#E4B54C;--jewel-gold-dim:rgba(228,181,76,.20);
+  --jewel-dusk:#B8A9F0;--jewel-dusk-dim:rgba(184,169,240,.20);
+  /* ── Tokens M3 (seed: or) ── */
+  --m3-primary:#6E4E17;--m3-on-primary:#FFF7E4;
+  --m3-primary-container:#ECD9A6;--m3-on-primary-container:#463108;
+  --m3-secondary-container:#DDD3F5;--m3-on-secondary-container:#2C2060;
+  --m3-surface-1:#FBF6EA;--m3-outline:#D8C79C;
+  --r-sm:12px;--r-md:16px;--r-lg:20px;--r-xl:28px;--r-full:999px;
+  --elev-1:0 1px 3px rgba(50,34,8,.16),0 1px 2px rgba(50,34,8,.10);
+  --elev-2:0 4px 14px rgba(50,34,8,.20),0 1px 3px rgba(50,34,8,.12);
+  --elev-3:0 10px 28px rgba(20,12,2,.32);
+  --ui-font:'Google Sans Text','Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+[data-theme=dark]{
+  --bg:#0D0904;--bg2:#191006;--bg3:#20150A;
+  --gold:#D6A845;--gold2:#EFC768;--gold3:#9C7326;
+  --ink:#F1E4C4;--ink2:#B99D6E;--ink3:#7A6440;
+  --green:#4C9C71;--green2:#0A1F12;--green3:#1D4A2C;
+  --dawn:#DE9250;--dawn2:#2A1200;
+  --dusk:#9B8AE0;--dusk2:#170D30;
+  --border:#3A2A10;--shadow:rgba(0,0,0,.45);
+  --jewel-bg:#0D0904;--jewel-bg2:#191006;--jewel-ink:#F1E4C4;--jewel-ink-dim:#8C7550;
+  --jewel-gold:#EFC768;--jewel-gold-dim:rgba(239,199,104,.18);
+  --jewel-dusk:#B8A9F0;--jewel-dusk-dim:rgba(184,169,240,.18);
+  --m3-primary:#EFC768;--m3-on-primary:#3D2C00;
+  --m3-primary-container:#4A3610;--m3-on-primary-container:#F3E1B8;
+  --m3-secondary-container:#2A2050;--m3-on-secondary-container:#DCD4F5;
+  --m3-surface-1:#1E1509;--m3-outline:#4A3A18;
+  --elev-1:0 1px 3px rgba(0,0,0,.55),0 1px 2px rgba(0,0,0,.4);
+  --elev-2:0 4px 14px rgba(0,0,0,.55);
+  --elev-3:0 10px 28px rgba(0,0,0,.6);
+}
+
+
+/* ── RESET ── */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Amiri',serif;
+  background:var(--bg);color:var(--ink);
+  padding-top:var(--safe-t);
+  padding-bottom:calc(var(--nav-h) + var(--safe-b));
+  transition:background .3s,color .3s;
+  min-height:100vh;
+}
+
+/* ── SPLASH ── */
+#splash{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--bg);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:40px 24px;
+  transition:opacity .5s,transform .5s;
+}
+.sp-logo{
+  width:100px;height:100px;border-radius:50%;
+  background:var(--ink);border:2.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:24px;
+  box-shadow:0 0 0 0 rgba(169,121,44,.4);
+  animation:sonar 2s infinite;
+}
+.sp-logo span{font-size:2.6rem;color:var(--gold)}
+.sp-t1{font-size:1.8rem;font-weight:700;color:var(--gold2);margin-bottom:6px}
+.sp-t2{font-family:Georgia,serif;font-style:italic;font-size:.9rem;color:var(--ink2);margin-bottom:14px}
+.sp-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--green2);border:1px solid var(--green3);
+  color:var(--green);border-radius:20px;
+  padding:5px 14px;font-family:Georgia,serif;font-size:.78rem;
+}
+.sp-dots{margin-top:28px;display:flex;gap:7px}
+.sp-dots span{
+  width:7px;height:7px;border-radius:50%;background:var(--gold);display:block;
+  animation:dot 1.4s infinite;
+}
+@keyframes sonar{0%,100%{box-shadow:0 0 0 0 rgba(169,121,44,.4)}60%{box-shadow:0 0 0 16px rgba(169,121,44,0)}}
+@keyframes dot{0%,80%,100%{opacity:.2;transform:scale(.8)}40%{opacity:1;transform:scale(1.2)}}
+
+/* ── HERO ── */
+.hero{
+  background:var(--bg);border-bottom:2px solid var(--border);
+  padding:calc(14px + var(--safe-t)) 20px 16px;
+  text-align:center;position:relative;
+}
+.hero-orn{color:var(--gold);font-size:1rem;opacity:.6;margin-bottom:10px;letter-spacing:.4em}
+.hero h1{font-size:clamp(1.5rem,5.5vw,2.2rem);font-weight:700;color:var(--gold2);line-height:1.5;margin-bottom:4px}
+.hero-sub{color:var(--ink2);font-size:.88rem}
+.hero-sub2{font-family:Georgia,serif;font-style:italic;font-size:.8rem;color:var(--ink3);margin-top:4px}
+.hero-line{width:60px;height:2px;background:var(--gold);margin:14px auto 0;opacity:.5}
+
+/* Bouton install discret dans le hero */
+#installBtn{
+  display:none;margin:14px auto 0;
+  align-items:center;justify-content:center;gap:8px;
+  background:var(--gold2);color:#FFF8E7;
+  border:none;border-radius:24px;padding:10px 22px;
+  font-family:Georgia,serif;font-size:.85rem;
+  cursor:pointer;max-width:240px;
+  box-shadow:0 4px 14px var(--shadow);
+  touch-action:manipulation;
+}
+
+/* ── TABS ── */
+.tabs{
+  display:flex;max-width:680px;margin:0 auto;
+  padding:10px 14px;gap:10px;
+  position:sticky;top:var(--safe-t);
+  background:var(--bg);z-index:10;
+  border-bottom:1px solid var(--border);
+}
+.tab{
+  flex:1;padding:11px 10px;border-radius:10px;
+  border:1.5px solid var(--border);background:var(--bg2);
+  cursor:pointer;text-align:center;
+  transition:all .22s;font-family:'Amiri',serif;
+  font-size:1rem;color:var(--ink2);
+  touch-action:manipulation;
+}
+.tab .tfr{
+  display:block;font-family:Georgia,serif;
+  font-size:.68rem;font-style:italic;margin-top:1px;opacity:.7;
+}
+.ti{display:block;font-size:1.3rem;margin-bottom:1px}
+.tab.is-active.tab-matin{background:var(--dawn2);border-color:var(--dawn);color:var(--dawn)}
+.tab.is-active.tab-soir{background:var(--dusk2);border-color:var(--dusk);color:var(--dusk)}
+
+/* ── BLOCS ── */
+.bloc-matin,.bloc-soir{display:none!important}
+.bloc-matin.is-active,.bloc-soir.is-active{display:flex!important}
+
+/* ── CARDS ── */
+.cards{
+  max-width:680px;margin:0 auto;
+  padding:14px 14px 20px;
+  display:flex;flex-direction:column;gap:16px;
+}
+.cards.is-active .card{animation:cardIn .38s cubic-bezier(.2,.8,.2,1) both}
+.cards.is-active .card:nth-child(1){animation-delay:.02s}
+.cards.is-active .card:nth-child(2){animation-delay:.05s}
+.cards.is-active .card:nth-child(3){animation-delay:.08s}
+.cards.is-active .card:nth-child(4){animation-delay:.11s}
+.cards.is-active .card:nth-child(5){animation-delay:.14s}
+.cards.is-active .card:nth-child(n+6){animation-delay:.16s}
+@keyframes cardIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){
+  .cards.is-active .card{animation:none}
+}
+.card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:20px 18px;position:relative;
+  box-shadow:var(--elev-1);
+  transition:background .3s,border-color .3s,box-shadow .2s,transform .1s;
+}
+.card.is-tappable{
+  cursor:pointer;touch-action:manipulation;
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+}
+.card.is-tappable:active{transform:scale(.985);box-shadow:var(--elev-1)}
+.card::before{
+  content:'';position:absolute;top:0;right:0;
+  width:4px;height:100%;background:var(--gold);
+  border-radius:0 var(--r-lg) var(--r-lg) 0;
+}
+.bloc-soir .card::before{background:var(--dusk)}
+.card-head{
+  display:flex;align-items:flex-start;
+  justify-content:space-between;margin-bottom:11px;
+  flex-wrap:wrap;gap:5px;
+}
+.card-titles{display:flex;flex-direction:column;gap:1px}
+.card-title-ar{font-size:.95rem;font-weight:700;color:var(--gold2)}
+.bloc-soir .card-title-ar{color:var(--dusk)}
+.card-title-fr{font-family:Georgia,serif;font-style:italic;font-size:.74rem;color:var(--ink2)}
+.card-count{
+  background:var(--m3-primary-container);color:var(--m3-on-primary-container);
+  border-radius:var(--r-full);padding:5px 13px;
+  font-size:.75rem;font-family:Georgia,serif;font-weight:700;
+  white-space:nowrap;direction:ltr;
+  transition:background .2s,color .2s;
+  min-width:34px;text-align:center;display:inline-block;
+  position:relative;
+}
+.bloc-soir .card-count{background:var(--m3-secondary-container);color:var(--m3-on-secondary-container)}
+.card-count.is-done{background:var(--green3);color:var(--green)}
+.card-count .cnt-num{display:inline-block}
+.card-count .cnt-total{opacity:.68;font-weight:400}
+.card-count .cnt-arrow{
+  display:inline-block;margin:0 2px;opacity:.55;font-size:.85em;
+  transform:translateX(0);
+}
+.card-count.just-tapped .cnt-num{animation:numPop .22s ease-out}
+.card-count.just-tapped .cnt-arrow{animation:arrowPing .38s ease-out}
+@keyframes numPop{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.22)}
+  100%{transform:scale(1)}
+}
+@keyframes arrowPing{
+  0%{transform:translateX(-3px);opacity:.25}
+  55%{transform:translateX(2px);opacity:1}
+  100%{transform:translateX(0);opacity:.55}
+}
+.card-count.just-completed{
+  animation:countPop .55s cubic-bezier(.34,1.56,.64,1),countRing .6s ease-out;
+}
+@keyframes countPop{
+  0%{transform:scale(1)}
+  40%{transform:scale(1.45)}
+  65%{transform:scale(.9)}
+  100%{transform:scale(1)}
+}
+@keyframes countRing{
+  0%{box-shadow:0 0 0 0 rgba(76,156,113,.5)}
+  100%{box-shadow:0 0 0 16px rgba(76,156,113,0)}
+}
+.card-footer-actions{
+  display:flex;justify-content:flex-end;
+  margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--border);
+}
+.audio-btn{
+  height:38px;border-radius:var(--r-full);padding:0 16px 0 14px;
+  background:linear-gradient(155deg,var(--m3-primary-container),color-mix(in srgb,var(--m3-primary-container) 82%,var(--gold3)));
+  color:var(--m3-on-primary-container);
+  border:1px solid rgba(156,115,38,.14);
+  display:flex;align-items:center;gap:8px;
+  cursor:pointer;flex-shrink:0;position:relative;overflow:hidden;
+  touch-action:manipulation;transition:background .25s,transform .15s,box-shadow .25s;
+  box-shadow:0 1px 3px rgba(50,34,8,.12),inset 0 1px 0 rgba(255,255,255,.35);
+  font-family:var(--ui-font);font-size:.76rem;font-weight:700;
+}
+.bloc-soir .audio-btn{
+  background:linear-gradient(155deg,var(--m3-secondary-container),color-mix(in srgb,var(--m3-secondary-container) 82%,var(--dusk)));
+  color:var(--m3-on-secondary-container);border-color:rgba(70,56,120,.14);
+}
+.audio-btn:active{transform:scale(.94)}
+.audio-btn.is-playing{
+  background:linear-gradient(155deg,var(--gold3),var(--gold));color:#2A1C06;
+  box-shadow:0 3px 10px rgba(156,115,38,.38),inset 0 1px 0 rgba(255,255,255,.3);
+  border-color:transparent;
+}
+.bloc-soir .audio-btn.is-playing{
+  background:linear-gradient(155deg,#C6B8F5,var(--dusk));color:#1C1730;
+  box-shadow:0 3px 10px rgba(70,56,120,.38),inset 0 1px 0 rgba(255,255,255,.3);
+  border-color:transparent;
+}
+.audio-icon{position:relative;width:19px;height:19px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.audio-icon-glyph{font-size:1.02rem;line-height:1;transition:opacity .15s,transform .15s}
+.audio-btn-label{line-height:1}
+.audio-bars{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:2.5px;
+  opacity:0;transform:scale(.7);transition:opacity .15s,transform .15s;
+}
+.audio-bars i{
+  display:block;width:3px;border-radius:2px;background:currentColor;height:6px;
+}
+.audio-btn.is-playing .audio-icon-glyph{opacity:0;transform:scale(.7)}
+.audio-btn.is-playing .audio-bars{opacity:1;transform:scale(1)}
+.audio-btn.is-playing .audio-bars i:nth-child(1){animation:eqBar .9s ease-in-out infinite}
+.audio-btn.is-playing .audio-bars i:nth-child(2){animation:eqBar .9s ease-in-out .18s infinite}
+.audio-btn.is-playing .audio-bars i:nth-child(3){animation:eqBar .9s ease-in-out .34s infinite}
+@keyframes eqBar{0%,100%{height:5px}50%{height:15px}}
+.card-source{
+  font-size:.72rem;color:var(--ink3);
+  font-family:Georgia,serif;font-style:italic;
+  margin-bottom:11px;border-bottom:1px dashed var(--border);
+  padding-bottom:8px;
+}
+.card-dhikr{
+  font-size:clamp(1.05rem,3vw,1.4rem);
+  line-height:2.4;color:var(--ink);
+  text-align:right;direction:rtl;margin-bottom:12px;
+}
+.card-translation{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:8px;padding:11px 13px;
+  font-family:Georgia,serif;font-style:italic;
+  font-size:.85rem;color:var(--ink2);
+  line-height:1.8;direction:ltr;text-align:left;
+  margin-bottom:10px;
+}
+.card-translation::before{
+  content:'Traduction — ';
+  font-weight:700;font-style:normal;color:var(--gold2);
+}
+.bloc-soir .card-translation::before{color:var(--dusk)}
+.card-fadl{
+  background:var(--green2);border:1px solid var(--green3);
+  border-radius:8px;padding:9px 13px;
+  font-size:.8rem;color:var(--green);
+  line-height:1.75;direction:ltr;text-align:left;
+}
+.card-fadl::before{content:'✦ Mérite — ';font-weight:700}
+
+/* ── BARRE DE NAVIGATION BAS ── */
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;
+  height:calc(var(--nav-h) + var(--safe-b));
+  padding-bottom:var(--safe-b);
+  background:var(--jewel-bg);
+  border-top:1px solid rgba(228,181,76,.15);
+  border-radius:var(--r-xl) var(--r-xl) 0 0;
+  display:flex;align-items:stretch;
+  z-index:100;
+  box-shadow:var(--elev-3);
+}
+.nav-item{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:4px;cursor:pointer;
+  font-family:var(--ui-font);font-size:.65rem;
+  color:var(--jewel-ink-dim);padding:10px 2px 8px;
+  border:none;background:none;
+  touch-action:manipulation;transition:color .25s;
+  position:relative;overflow:hidden;
+}
+.nav-item.active{color:var(--jewel-gold);font-weight:600}
+#navSoir.active{color:var(--jewel-dusk)}
+.nav-icon{
+  font-size:1.2rem;line-height:1;
+  padding:5px 20px;border-radius:var(--r-full);
+  transition:background .3s cubic-bezier(.2,.8,.2,1),transform .25s cubic-bezier(.3,1.4,.4,1);
+}
+.nav-item.active .nav-icon{background:var(--jewel-gold-dim);transform:translateY(-1px)}
+#navSoir.active .nav-icon{background:var(--jewel-dusk-dim)}
+.nav-label{font-size:.63rem;text-align:center;line-height:1.2;font-family:var(--ui-font);letter-spacing:.01em}
+
+/* Séparateur vertical */
+.nav-sep{
+  width:1px;background:rgba(244,232,200,.10);
+  margin:14px 0;
+}
+
+
+/* ── MODALES ── */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(4px);
+  align-items:flex-end;justify-content:center;
+}
+.modal-overlay.open{display:flex}
+.modal{
+  background:var(--m3-surface-1);border-radius:var(--r-xl) var(--r-xl) 0 0;
+  width:100%;max-width:680px;
+  padding:0 0 calc(20px + var(--safe-b)) 0;
+  max-height:90vh;overflow-y:auto;
+  box-shadow:var(--elev-3);
+  animation:slideUp .3s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.modal-handle{
+  width:32px;height:4px;background:var(--m3-outline);
+  border-radius:var(--r-full);margin:12px auto 16px;
+}
+.modal-title{
+  text-align:center;padding:0 52px 16px;position:relative;
+  border-bottom:1px solid var(--border);
+  font-family:var(--ui-font);
+  font-size:1.15rem;font-weight:700;color:var(--gold2);
+}
+.modal-close{
+  position:absolute;top:-2px;right:14px;
+  width:36px;height:36px;border-radius:var(--r-full);
+  border:none;background:var(--bg3);color:var(--ink2);
+  font-size:1rem;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;touch-action:manipulation;overflow:hidden;
+}
+.modal-title small{
+  display:block;font-family:Georgia,serif;
+  font-style:italic;font-size:.78rem;
+  color:var(--ink2);font-weight:400;margin-top:3px;
+}
+.modal-body{padding:20px 20px 0}
+.modal-section-title{
+  font-family:var(--ui-font);font-size:.82rem;font-weight:700;
+  color:var(--ink2);margin:22px 0 10px;letter-spacing:.02em;
+}
+.modal-section-title:first-child{margin-top:0}
+
+/* ── MODAL RÉGLAGES (apparence + voix) ── */
+.theme-options,.voice-options{display:flex;flex-direction:column;gap:10px}
+.theme-opt,.voice-opt{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 16px;border-radius:var(--r-md);position:relative;overflow:hidden;
+  border:1.5px solid var(--border);background:var(--bg);
+  cursor:pointer;transition:all .2s;touch-action:manipulation;
+}
+.theme-opt.selected,.voice-opt.selected{border-color:var(--gold);background:var(--m3-primary-container)}
+.theme-opt-icon,.voice-opt-icon{font-size:1.5rem;width:36px;text-align:center;flex-shrink:0}
+.theme-opt-info,.voice-opt-info{flex:1;min-width:0}
+.theme-opt-name,.voice-opt-name{font-size:.95rem;font-weight:700;color:var(--ink);font-family:var(--ui-font)}
+.theme-opt-desc,.voice-opt-desc{font-family:Georgia,serif;font-style:italic;font-size:.75rem;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.theme-opt-check,.voice-opt-check{font-size:1.1rem;color:var(--gold);opacity:0;flex-shrink:0}
+.theme-opt.selected .theme-opt-check,.voice-opt.selected .voice-opt-check{opacity:1}
+.voice-single,.voice-empty{
+  font-family:Georgia,serif;font-size:.85rem;color:var(--ink2);
+  background:var(--bg3);border-radius:var(--r-md);padding:14px 16px;line-height:1.7;
+}
+.voice-retry{
+  display:inline-block;margin-top:10px;font-family:var(--ui-font);
+  font-weight:700;font-size:.8rem;color:var(--m3-on-primary-container);
+  background:var(--m3-primary-container);border-radius:var(--r-full);
+  padding:8px 16px;cursor:pointer;touch-action:manipulation;
+}
+.voice-test-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:6px;font-family:var(--ui-font);font-weight:700;font-size:.85rem;
+  color:var(--m3-on-primary);background:var(--gold);border-radius:var(--r-full);
+  padding:12px 16px;cursor:pointer;touch-action:manipulation;
+}
+
+/* ── Chips de réglage (vibration, vitesse) ── */
+.vibe-group{margin-bottom:16px}
+.vibe-group-label{
+  font-family:var(--ui-font);font-size:.78rem;font-weight:700;
+  color:var(--ink2);margin-bottom:8px;
+}
+.vibe-chips{display:flex;gap:8px;flex-wrap:wrap}
+.opt-chip{
+  padding:9px 15px;border-radius:var(--r-full);
+  border:1.5px solid var(--border);background:var(--bg);
+  font-family:var(--ui-font);font-size:.78rem;font-weight:700;
+  color:var(--ink2);cursor:pointer;touch-action:manipulation;
+  transition:all .15s;
+}
+.opt-chip:active{transform:scale(.95)}
+.opt-chip.selected{
+  border-color:var(--gold);background:var(--m3-primary-container);
+  color:var(--m3-on-primary-container);
+}
+
+/* ── MODAL PARTAGE ── */
+.share-url-box{
+  background:var(--bg3);border:1.5px solid var(--gold);
+  border-radius:10px;padding:12px 14px;
+  text-align:center;font-family:Georgia,serif;
+  font-size:.82rem;color:var(--gold2);
+  margin-bottom:16px;word-break:break-all;
+  direction:ltr;
+}
+.share-btns{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.sbtn{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;border-radius:var(--r-full);padding:14px 20px;
+  font-family:var(--ui-font);font-size:.9rem;
+  cursor:pointer;border:1.5px solid;position:relative;overflow:hidden;
+  touch-action:manipulation;transition:opacity .2s;
+  font-weight:700;text-decoration:none;
+}
+.sbtn:active{opacity:.7}
+.sbtn-primary{background:var(--m3-primary);color:var(--m3-on-primary);border-color:var(--m3-primary)}
+.sbtn-secondary{background:var(--m3-secondary-container);color:var(--m3-on-secondary-container);border-color:transparent}
+
+/* ── Écouter tout — intégré sous les onglets ── */
+.listen-all-row{
+  max-width:680px;margin:0 auto;
+  padding:0 14px 12px;
+  display:flex;justify-content:center;
+}
+.listen-all-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--bg2);border:1.5px solid var(--gold3);
+  color:var(--gold2);border-radius:var(--r-full);
+  padding:9px 20px;
+  font-family:var(--ui-font);font-weight:700;font-size:.78rem;letter-spacing:.01em;
+  cursor:pointer;touch-action:manipulation;position:relative;overflow:hidden;
+  box-shadow:0 1px 4px rgba(50,34,8,.10);
+  transition:background .2s,transform .15s,box-shadow .2s;
+}
+.bloc-soir.is-active ~ .listen-all-row .listen-all-btn,
+.listen-all-btn.mode-soir{border-color:var(--dusk);color:var(--dusk)}
+.listen-all-btn:active{transform:scale(.96)}
+.listen-all-btn.is-playing{
+  background:linear-gradient(135deg,var(--gold3),var(--gold));color:#2A1C06;border-color:transparent;
+  box-shadow:0 3px 10px rgba(156,115,38,.3);
+}
+.listen-all-btn.mode-soir.is-playing{
+  background:linear-gradient(135deg,#C6B8F5,var(--dusk));color:#1C1730;border-color:transparent;
+  box-shadow:0 3px 10px rgba(70,56,120,.3);
+}
+.listen-all-icon{font-size:.95rem;line-height:1}
+.listen-all-btn.is-playing .listen-all-icon{animation:pulseIcon 1s infinite}
+@keyframes pulseIcon{0%,100%{opacity:1}50%{opacity:.5}}
+
+/* ── Ripple (état M3) ── */
+.ripple{
+  position:absolute;border-radius:50%;
+  background:rgba(255,255,255,.5);
+  transform:scale(0);animation:rippleAnim .5s ease-out forwards;
+  pointer-events:none;
+}
+[data-theme=light] .audio-btn .ripple,[data-theme=light] .theme-opt .ripple,[data-theme=light] .voice-opt .ripple{background:rgba(80,60,20,.18)}
+@keyframes rippleAnim{to{transform:scale(2.6);opacity:0}}
+
+/* ── Guide Aide (méthode Feynman) ── */
+.aide-block{margin-bottom:18px}
+.aide-block:last-child{margin-bottom:0}
+.aide-h{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--ui-font);font-weight:700;font-size:.95rem;
+  color:var(--gold2);margin-bottom:6px;
+}
+.aide-h .aide-num{
+  width:26px;height:26px;border-radius:50%;flex-shrink:0;
+  background:var(--m3-primary-container);color:var(--m3-on-primary-container);
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;
+}
+.aide-p{
+  font-family:Georgia,serif;font-size:.88rem;line-height:1.8;
+  color:var(--ink2);padding-left:36px;
+}
+.aide-p strong{color:var(--ink);font-weight:700}
+.about-dev{
+  margin-top:24px;padding-top:20px;border-top:1px dashed var(--border);
+  text-align:center;
+}
+.about-dev-title{
+  font-family:var(--ui-font);font-weight:700;font-size:.9rem;color:var(--ink);margin-bottom:4px;
+}
+.about-dev-name{
+  font-family:Georgia,serif;font-style:italic;font-size:.78rem;color:var(--ink2);
+}
+
+/* ── MODAL CÉLÉBRATION ── */
+.modal-celebration{
+  text-align:center;padding:8px 26px calc(28px + var(--safe-b));
+  background:linear-gradient(180deg,var(--m3-surface-1) 0%,var(--bg2) 100%);
+}
+.celebration-orn{
+  color:var(--gold3);font-size:1.1rem;letter-spacing:.35em;
+  margin:6px 0 18px;opacity:.8;
+}
+.celebration-title{
+  font-family:var(--ui-font);font-weight:700;font-size:1.15rem;
+  color:var(--gold2);margin-bottom:14px;
+}
+.celebration-message{
+  font-family:Georgia,serif;font-size:.95rem;line-height:1.85;
+  color:var(--ink);max-width:420px;margin:0 auto 26px;
+}
+.celebration-actions{display:flex;justify-content:center}
+.celebration-actions .sbtn{padding:13px 38px}
+.install-steps{
+  background:var(--bg3);border-radius:10px;
+  padding:14px 16px;
+}
+.install-steps h4{
+  font-family:Georgia,serif;font-size:.82rem;
+  font-style:italic;color:var(--ink2);margin-bottom:10px;
+  text-align:left;direction:ltr;
+}
+.install-step{
+  display:flex;gap:10px;margin-bottom:8px;
+  font-family:Georgia,serif;font-size:.8rem;
+  color:var(--ink2);direction:ltr;text-align:left;
+}
+.install-step:last-child{margin-bottom:0}
+.step-icon{font-size:.9rem;width:20px;flex-shrink:0;margin-top:1px}
+
+/* ── FOOTER ── */
+.footer{
+  background:var(--bg3);border-top:1px solid var(--border);
+  text-align:center;padding:24px 20px;
+  color:var(--ink3);font-size:.82rem;line-height:2;
+}
+.footer .ayah{
+  font-family:'Amiri',serif;font-size:1.15rem;
+  color:var(--gold2);display:block;margin-bottom:3px;direction:rtl;
+}
+.footer .ayah-fr{
+  font-family:Georgia,serif;font-style:italic;
+  font-size:.78rem;color:var(--ink3);margin-bottom:8px;
+}
+.footer small{
+  display:block;font-family:Georgia,serif;
+  font-style:italic;font-size:.7rem;color:var(--ink3);opacity:.7;margin-top:8px;
+}
+.footer-signature{
+  margin-top:20px;padding-top:18px;
+  border-top:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;
+}
+.footer-signature-orn{
+  color:var(--gold3);font-size:.65rem;letter-spacing:.3em;
+  opacity:.6;margin-bottom:8px;
+}
+.footer-signature-name{
+  font-family:Georgia,serif;font-style:italic;font-size:.8rem;
+  color:var(--ink2);letter-spacing:.01em;
+}
+.footer-signature-role{
+  font-family:var(--ui-font);font-size:.58rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.12em;
+  color:var(--ink3);opacity:.7;margin-top:3px;
+}
+.footer-signature-links{display:flex;gap:10px;margin-top:12px}
+.footer-signature-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--ui-font);font-size:.66rem;font-weight:700;
+  color:var(--gold2);text-decoration:none;
+  padding:6px 13px;border-radius:var(--r-full);
+  background:transparent;border:1px solid var(--gold3);
+  transition:background .2s,opacity .15s;
+}
+.footer-signature-link:active{opacity:.6;background:var(--m3-primary-container)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:420px){
+  .card{padding:17px 13px}
+  .card-dhikr{font-size:1.05rem;line-height:2.2}
+  .tabs{gap:7px;padding:8px 10px}
+}
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="sp-logo"><span>✦</span></div>
+  <div class="sp-t1">أذكار الصباح والمساء</div>
+  <div class="sp-t2">Adhkar du matin et du soir</div>
+  <div class="sp-badge">✓ Fonctionne hors connexion</div>
+  <div class="sp-dots">
+    <span style="animation-delay:0s"></span>
+    <span style="animation-delay:.2s"></span>
+    <span style="animation-delay:.4s"></span>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-orn">✦ ✦ ✦</div>
+  <h1>أذكار الصباح والمساء</h1>
+  <p class="hero-sub">من كتاب «حصن المسلم» — سعيد بن علي القحطاني</p>
+  <p class="hero-sub2">D'après « La Citadelle du Musulman » — Cheikh Sa'id al-Qahtani</p>
+  <div class="hero-line"></div>
+  <button id="installBtn" onclick="installApp()">⬇ Installer l'application</button>
+</header>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab is-active tab-matin" id="tabMatin" onclick="setMode('matin')">
+    <span class="ti">🌅</span>أذكار الصباح<span class="tfr">Adhkar du matin</span>
+  </div>
+  <div class="tab tab-soir" id="tabSoir" onclick="setMode('soir')">
+    <span class="ti">🌙</span>أذكار المساء<span class="tfr">Adhkar du soir</span>
+  </div>
+</div>
+
+<!-- Écouter tout — intégré juste sous les onglets -->
+<div class="listen-all-row">
+  <button class="listen-all-btn" id="fabPlayAll" onclick="toggleReadAll()">
+    <span class="listen-all-icon" id="fabIcon">🔊</span>
+    <span id="fabLabel">Écouter tout</span>
+  </button>
+</div>
+
+<!-- BLOC MATIN -->
+<div class="cards bloc-matin is-active" id="blocMatin">
+
+
+  <!-- 1 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">الافتتاح</span>
+        <span class="card-title-fr">Ouverture</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud — hadith authentifié (hasan)</div>
+    <div class="card-dhikr">الْحَمْدُ لِلَّهِ وَحْدَهُ، وَالصَّلاَةُ وَالسَّلاَمُ عَلَى مَنْ لاَ نَبِيَّ بَعْدَهُ</div>
+    <div class="card-translation">Louange à Allah, Lui Seul, et que la prière et le salut soient sur celui après qui il n'y a plus de prophète.</div>
+    <div class="card-fadl">Il est recommandé d'ouvrir la séance d'adhkar par cette formule.</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">آية الكرسي</span>
+        <span class="card-title-fr">Le Verset du Trône</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Al-Baqara, 255 — mérite rapporté par Al-Hakim, authentique</div>
+    <div class="card-dhikr">اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلاَّ بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ</div>
+    <div class="card-translation">Allah ! Nulle divinité sauf Lui, le Vivant, Celui qui subsiste par Lui-même. Ni somnolence ni sommeil ne Le saisissent. À Lui appartient tout ce qui est dans les cieux et sur la terre. Qui peut intercéder auprès de Lui sans Sa permission ? Il sait ce qui est devant les hommes et ce qui est derrière eux ; et ils n'embrassent de Sa science que ce qu'Il veut. Son Trône s'étend sur les cieux et la terre, et leur garde ne Lui coûte aucune peine. Il est le Très-Haut, le Très-Grand.</div>
+    <div class="card-fadl">Celui qui la récite le matin est protégé des démons jusqu'au soir.</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سورة الإخلاص</span>
+        <span class="card-title-fr">Sourate Al-Ikhlas</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Extrait des trois sourates protectrices — Abou Dawoud, Tirmidhi, authentique</div>
+    <div class="card-dhikr">قُلْ هُوَ اللَّهُ أَحَدٌ ۞ اللَّهُ الصَّمَدُ ۞ لَمْ يَلِدْ وَلَمْ يُولَدْ ۞ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ</div>
+    <div class="card-translation">
+      Dis : Il est Allah, Unique ; Allah, le Seul à qui l'on s'adresse pour ses besoins ; Il n'a jamais engendré, n'a pas été engendré ; et nul n'est égal à Lui.
+    </div>
+    <div class="card-fadl">Récitée trois fois matin et soir avec Al-Falaq et An-Nas, elle suffit à protéger de tout mal.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سورة الفلق</span>
+        <span class="card-title-fr">Sourate Al-Falaq</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Extrait des trois sourates protectrices — Abou Dawoud, Tirmidhi, authentique</div>
+    <div class="card-dhikr">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۞ مِنْ شَرِّ مَا خَلَقَ ۞ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۞ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۞ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ</div>
+    <div class="card-translation">
+      Dis : Je cherche protection auprès du Seigneur de l'aube naissante, contre le mal de ce qu'Il a créé, contre le mal de l'obscurité quand elle s'installe, contre le mal des souffleuses de magie dans les nœuds, et contre le mal de l'envieux quand il envie.
+    </div>
+    <div class="card-fadl">Récitée trois fois matin et soir avec Al-Ikhlas et An-Nas, elle suffit à protéger de tout mal.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سورة الناس</span>
+        <span class="card-title-fr">Sourate An-Nas</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Extrait des trois sourates protectrices — Abou Dawoud, Tirmidhi, authentique</div>
+    <div class="card-dhikr">قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۞ مَلِكِ النَّاسِ ۞ إِلَهِ النَّاسِ ۞ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۞ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۞ مِنَ الْجِنَّةِ وَالنَّاسِ</div>
+    <div class="card-translation">
+      Dis : Je cherche protection auprès du Seigneur des hommes, le Souverain des hommes, le Dieu des hommes, contre le mal du tentateur qui se retire après avoir soufflé le mal, celui qui souffle le mal dans les poitrines des hommes, qu'il soit djinn ou être humain.
+    </div>
+    <div class="card-fadl">Récitée trois fois matin et soir avec Al-Ikhlas et Al-Falaq, elle suffit à protéger de tout mal.</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">أصبحنا وأصبح الملك لله</span>
+        <span class="card-title-fr">Nous voici au matin, et la royauté appartient à Allah</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Muslim — authentique</div>
+    <div class="card-dhikr">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ</div>
+    <div class="card-translation">Nous voici au matin, et la royauté appartient à Allah, la louange appartient à Allah. Nulle divinité sauf Allah, Seul, sans associé. À Lui la royauté, à Lui la louange, et Il est capable de toute chose. Seigneur, je Te demande le bien de ce jour et le bien de ce qui suivra, et je cherche refuge auprès de Toi contre le mal de ce jour et le mal de ce qui suivra. Seigneur, je cherche refuge auprès de Toi contre la paresse et la mauvaise vieillesse. Seigneur, je cherche refuge auprès de Toi contre un châtiment dans le Feu et un châtiment dans la tombe.</div>
+    <div class="card-fadl">Réunit la glorification d'Allah, la reconnaissance et la demande du bien pour toute la journée.</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم بك أصبحنا</span>
+        <span class="card-title-fr">Seigneur, c'est par Toi que nous voici au matin</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par At-Tirmidhi — authentique</div>
+    <div class="card-dhikr">اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ</div>
+    <div class="card-translation">Ô Allah, c'est par Toi que nous voici au matin, par Toi que nous arrivons au soir, par Toi que nous vivons, par Toi que nous mourons, et vers Toi est notre retour à la vie.</div>
+    <div class="card-fadl">Reconnaître qu'Allah seul est la source de toute vie et l'aboutissement de toute fin.</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سيد الاستغفار</span>
+        <span class="card-title-fr">Le maître des formules de pardon</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Al-Bukhari — authentique</div>
+    <div class="card-dhikr">اللَّهُمَّ أَنْتَ رَبِّي، لاَ إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي، فَاغْفِرْ لِي؛ فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ</div>
+    <div class="card-translation">Ô Allah, Tu es mon Seigneur, nulle divinité sauf Toi. Tu m'as créé et je suis Ton serviteur, je m'efforce de tenir mon engagement et ma promesse envers Toi autant que je le peux. Je cherche refuge auprès de Toi contre le mal que j'ai commis. Je reconnais devant Toi Ton bienfait sur moi, et je reconnais mon péché. Pardonne-moi donc, car nul ne pardonne les péchés sauf Toi.</div>
+    <div class="card-fadl">Celui qui la dit le matin avec certitude et meurt dans sa journée entre au Paradis.</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم إني أصبحت أشهدك</span>
+        <span class="card-title-fr">Ô Allah, je Te prends à témoin en ce matin</span>
+      </div>
+      <span class="card-count">× 4</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud et An-Nasa'i — bon (hasan)</div>
+    <div class="card-dhikr">اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلاَئِكَتَكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ لاَ إِلَهَ إِلاَّ أَنْتَ وَحْدَكَ لاَ شَرِيكَ لَكَ، وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ</div>
+    <div class="card-translation">Ô Allah, je voici au matin et je Te prends à témoin, ainsi que les porteurs de Ton Trône, Tes anges et toute Ta création, que Tu es Allah, qu'il n'y a nulle divinité sauf Toi, Toi Seul sans associé, et que Mouhammad est Ton serviteur et Ton messager.</div>
+    <div class="card-fadl">Celui qui le dit quatre fois le matin ou le soir, Allah l'affranchit du Feu.</div>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم ما أصبح بي من نعمة</span>
+        <span class="card-title-fr">Reconnaissance pour tout bienfait</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud et Ibn Hibban — bon (hasan)</div>
+    <div class="card-dhikr">اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ، فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ</div>
+    <div class="card-translation">Ô Allah, tout bienfait qui m'est parvenu ce matin, ou qui est parvenu à l'une de Tes créatures, provient de Toi Seul, sans associé. À Toi donc la louange, et à Toi la gratitude.</div>
+    <div class="card-fadl">Celui qui la dit le matin a accompli la gratitude due pour sa journée entière.</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم عافني في بدني</span>
+        <span class="card-title-fr">Demande de bonne santé</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud et Ahmad — bon (hasan)</div>
+    <div class="card-dhikr">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أَنْتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكُفْرِ وَالْفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ</div>
+    <div class="card-translation">Ô Allah, préserve mon corps en bonne santé. Ô Allah, préserve mon ouïe. Ô Allah, préserve ma vue. Nulle divinité sauf Toi. Ô Allah, je cherche refuge auprès de Toi contre la mécréance et la pauvreté, et je cherche refuge auprès de Toi contre le châtiment de la tombe. Nulle divinité sauf Toi.</div>
+    <div class="card-fadl">Préserve le corps et les sens des maladies et des épreuves.</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">حسبي الله</span>
+        <span class="card-title-fr">Allah me suffit</span>
+      </div>
+      <span class="card-count">× 7</span>
+    </div>
+    <div class="card-source">Rapporté par Ibn as-Sunni et Abou Dawoud — authentique</div>
+    <div class="card-dhikr">حَسْبِيَ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ، عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</div>
+    <div class="card-translation">Allah me suffit, nulle divinité sauf Lui ; je m'en remets à Lui, et Il est le Seigneur du Trône immense.</div>
+    <div class="card-fadl">Celui qui la dit sept fois matin et soir, Allah lui suffit pour tout ce qui le préoccupe, dans cette vie comme dans l'au-delà.</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">العفو والعافية في كل شيء</span>
+        <span class="card-title-fr">Le pardon et le bien-être en toute chose</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud et Ibn Maja — authentique</div>
+    <div class="card-dhikr">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي، وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ، وَمِنْ خَلْفِي، وَعَنْ يَمِينِي، وَعَنْ شِمَالِي، وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي</div>
+    <div class="card-translation">Ô Allah, je Te demande le pardon et le bien-être dans cette vie et dans l'au-delà. Ô Allah, je Te demande le pardon et le bien-être dans ma religion, ma vie d'ici-bas, ma famille et mes biens. Ô Allah, couvre mes fragilités, et apaise mes craintes. Ô Allah, protège-moi devant moi, derrière moi, à ma droite, à ma gauche, et au-dessus de moi ; et je cherche refuge en Ta grandeur contre le fait d'être surpris par le mal venant d'en dessous de moi.</div>
+    <div class="card-fadl">Le Prophète ﷺ ne manquait jamais de la dire, matin et soir : une protection complète, des six directions.</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم عالم الغيب والشهادة</span>
+        <span class="card-title-fr">Ô Toi qui connais l'invisible et le visible</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par At-Tirmidhi et Abou Dawoud — authentique</div>
+    <div class="card-dhikr">اللَّهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ، فَاطِرَ السَّمَاوَاتِ وَالأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءًا أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ</div>
+    <div class="card-translation">Ô Allah, Toi qui connais l'invisible et le visible, Créateur des cieux et de la terre, Seigneur et Souverain de toute chose, je témoigne qu'il n'y a nulle divinité sauf Toi. Je cherche refuge auprès de Toi contre le mal de mon âme, contre le mal du Diable et de ce vers quoi il associe, et contre le fait de commettre un mal envers moi-même ou de l'attirer sur un musulman.</div>
+    <div class="card-fadl">Protège du mal de l'âme, du Diable, et de tout tort fait à autrui.</div>
+  </div>
+
+  <!-- 13 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">بسم الله الذي لا يضر</span>
+        <span class="card-title-fr">Au nom d'Allah avec lequel rien ne peut nuire</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud et At-Tirmidhi — authentique</div>
+    <div class="card-dhikr">بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الأَرْضِ وَلاَ فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</div>
+    <div class="card-translation">Au nom d'Allah, avec le nom duquel rien ne peut nuire, ni sur la terre ni dans le ciel ; Il est Celui qui entend tout, qui sait tout.</div>
+    <div class="card-fadl">Celui qui la dit trois fois le matin et trois fois le soir n'est atteint par aucun mal.</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">رضيت بالله رباً</span>
+        <span class="card-title-fr">Je me satisfais d'Allah comme Seigneur</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Rapporté par Ahmad, An-Nasa'i, At-Tirmidhi — bon (hasan)</div>
+    <div class="card-dhikr">رَضِيتُ بِاللَّهِ رَبًّا، وَبِالإِسْلاَمِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا</div>
+    <div class="card-translation">Je me satisfais d'Allah comme Seigneur, de l'Islam comme religion, et de Mouhammad — qu'Allah le bénisse et lui accorde la paix — comme prophète.</div>
+    <div class="card-fadl">Celui qui la dit trois fois matin et soir, Allah s'engage à le satisfaire au Jour de la Résurrection.</div>
+  </div>
+
+  <!-- 15 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سبحان الله وبحمده</span>
+        <span class="card-title-fr">Gloire et louange à Allah</span>
+      </div>
+      <span class="card-count">× 100</span>
+    </div>
+    <div class="card-source">Rapporté par Muslim — authentique</div>
+    <div class="card-dhikr">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</div>
+    <div class="card-translation">Gloire et pureté à Allah, et louange à Lui.</div>
+    <div class="card-fadl">Celui qui le dit cent fois, nul ne viendra le Jour de la Résurrection avec mieux que lui, sauf celui qui en a dit autant ou davantage.</div>
+  </div>
+
+  <!-- 16 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">لا إله إلا الله وحده لا شريك له</span>
+        <span class="card-title-fr">Nulle divinité sauf Allah, Seul, sans associé</span>
+      </div>
+      <span class="card-count">× 100</span>
+    </div>
+    <div class="card-source">Rapporté par Al-Bukhari et Muslim — authentique</div>
+    <div class="card-dhikr">لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</div>
+    <div class="card-translation">Nulle divinité sauf Allah, Seul, sans associé. À Lui la royauté, à Lui la louange, et Il est capable de toute chose.</div>
+    <div class="card-fadl">Cent fois équivaut à libérer dix esclaves, fait inscrire cent bonnes actions, efface cent péchés, et protège du Diable toute la journée.</div>
+  </div>
+
+  <!-- 17 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سبحان الله وبحمده عدد خلقه</span>
+        <span class="card-title-fr">Gloire à Allah, selon le nombre de Ses créatures</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Rapporté par Muslim — authentique · À dire le matin uniquement</div>
+    <div class="card-dhikr">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ</div>
+    <div class="card-translation">Gloire et pureté à Allah, et louange à Lui, selon le nombre de Ses créatures, selon Sa satisfaction, selon le poids de Son Trône, et selon l'encre de Ses paroles.</div>
+    <div class="card-fadl">Elle surpasse en récompense le tasbih ordinaire. À réciter trois fois le matin uniquement.</div>
+  </div>
+
+  <!-- 18 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم إني أسألك علماً نافعاً</span>
+        <span class="card-title-fr">Demande de science utile, de bonne subsistance et d'œuvre acceptée</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Ibn Maja et Ahmad — authentique · À dire le matin uniquement</div>
+    <div class="card-dhikr">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا</div>
+    <div class="card-translation">Ô Allah, je Te demande une science utile, une subsistance pure et bonne, et une œuvre qui soit acceptée.</div>
+    <div class="card-fadl">Trois demandes fondamentales pour une vie bénie : la connaissance, la subsistance et l'action — toutes purifiées et acceptées par Allah.</div>
+  </div>
+
+  <!-- 19 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">الصلاة على النبي ﷺ</span>
+        <span class="card-title-fr">Prière et salut sur le Prophète ﷺ</span>
+      </div>
+      <span class="card-count">× 10</span>
+    </div>
+    <div class="card-source">Rapporté par At-Tabarani — bon (hasan)</div>
+    <div class="card-dhikr">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ</div>
+    <div class="card-translation">Ô Allah, envoie Ta prière et Ton salut sur notre Prophète Mouhammad.</div>
+    <div class="card-fadl">Le Prophète ﷺ a dit : « Celui qui envoie la prière sur moi dix fois le matin et dix fois le soir, ma intercession l'atteindra le Jour de la Résurrection. »</div>
+  </div>
+
+  <!-- 20 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">أستغفر الله وأتوب إليه</span>
+        <span class="card-title-fr">Je demande pardon à Allah et me repens à Lui</span>
+      </div>
+      <span class="card-count">× 100</span>
+    </div>
+    <div class="card-source">Rapporté par Al-Bukhari et Muslim — authentique</div>
+    <div class="card-dhikr">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</div>
+    <div class="card-translation">Je demande pardon à Allah et je me repens à Lui.</div>
+    <div class="card-fadl">Le Prophète ﷺ demandait le pardon plus de cent fois par jour. L'istighfar efface les péchés, ouvre les portes du rizq et apaise le cœur.</div>
+  </div>
+
+
+</div>
+
+<!-- BLOC SOIR -->
+<div class="cards bloc-soir" id="blocSoir">
+
+
+  <!-- 1 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">الافتتاح</span>
+        <span class="card-title-fr">Ouverture</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud — hadith authentifié (hasan)</div>
+    <div class="card-dhikr">الْحَمْدُ لِلَّهِ وَحْدَهُ، وَالصَّلاَةُ وَالسَّلاَمُ عَلَى مَنْ لاَ نَبِيَّ بَعْدَهُ</div>
+    <div class="card-translation">Louange à Allah, Lui Seul, et que la prière et le salut soient sur celui après qui il n'y a plus de prophète.</div>
+    <div class="card-fadl">Il est recommandé d'ouvrir la séance d'adhkar par cette formule.</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">آية الكرسي</span>
+        <span class="card-title-fr">Le Verset du Trône</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Al-Baqara, 255 — mérite rapporté par Al-Hakim, authentique</div>
+    <div class="card-dhikr">اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلاَّ بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ</div>
+    <div class="card-translation">Allah ! Nulle divinité sauf Lui, le Vivant, Celui qui subsiste par Lui-même. Ni somnolence ni sommeil ne Le saisissent. À Lui appartient tout ce qui est dans les cieux et sur la terre. Qui peut intercéder auprès de Lui sans Sa permission ? Il sait ce qui est devant les hommes et ce qui est derrière eux ; et ils n'embrassent de Sa science que ce qu'Il veut. Son Trône s'étend sur les cieux et la terre, et leur garde ne Lui coûte aucune peine. Il est le Très-Haut, le Très-Grand.</div>
+    <div class="card-fadl">Celui qui la récite le soir est protégé des démons jusqu'au matin.</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سورة الإخلاص</span>
+        <span class="card-title-fr">Sourate Al-Ikhlas</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Extrait des trois sourates protectrices — Abou Dawoud, Tirmidhi, authentique</div>
+    <div class="card-dhikr">قُلْ هُوَ اللَّهُ أَحَدٌ ۞ اللَّهُ الصَّمَدُ ۞ لَمْ يَلِدْ وَلَمْ يُولَدْ ۞ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ</div>
+    <div class="card-translation">
+      Dis : Il est Allah, Unique ; Allah, le Seul à qui l'on s'adresse pour ses besoins ; Il n'a jamais engendré, n'a pas été engendré ; et nul n'est égal à Lui.
+    </div>
+    <div class="card-fadl">Récitée trois fois matin et soir avec Al-Falaq et An-Nas, elle suffit à protéger de tout mal.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سورة الفلق</span>
+        <span class="card-title-fr">Sourate Al-Falaq</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Extrait des trois sourates protectrices — Abou Dawoud, Tirmidhi, authentique</div>
+    <div class="card-dhikr">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۞ مِنْ شَرِّ مَا خَلَقَ ۞ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۞ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۞ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ</div>
+    <div class="card-translation">
+      Dis : Je cherche protection auprès du Seigneur de l'aube naissante, contre le mal de ce qu'Il a créé, contre le mal de l'obscurité quand elle s'installe, contre le mal des souffleuses de magie dans les nœuds, et contre le mal de l'envieux quand il envie.
+    </div>
+    <div class="card-fadl">Récitée trois fois matin et soir avec Al-Ikhlas et An-Nas, elle suffit à protéger de tout mal.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سورة الناس</span>
+        <span class="card-title-fr">Sourate An-Nas</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Extrait des trois sourates protectrices — Abou Dawoud, Tirmidhi, authentique</div>
+    <div class="card-dhikr">قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۞ مَلِكِ النَّاسِ ۞ إِلَهِ النَّاسِ ۞ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۞ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۞ مِنَ الْجِنَّةِ وَالنَّاسِ</div>
+    <div class="card-translation">
+      Dis : Je cherche protection auprès du Seigneur des hommes, le Souverain des hommes, le Dieu des hommes, contre le mal du tentateur qui se retire après avoir soufflé le mal, celui qui souffle le mal dans les poitrines des hommes, qu'il soit djinn ou être humain.
+    </div>
+    <div class="card-fadl">Récitée trois fois matin et soir avec Al-Ikhlas et Al-Falaq, elle suffit à protéger de tout mal.</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">أمسينا وأمسى الملك لله</span>
+        <span class="card-title-fr">Nous voici au soir, et la royauté appartient à Allah</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Muslim — authentique</div>
+    <div class="card-dhikr">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ</div>
+    <div class="card-translation">Nous voici au soir, et la royauté appartient à Allah, la louange appartient à Allah. Nulle divinité sauf Allah, Seul, sans associé. À Lui la royauté, à Lui la louange, et Il est capable de toute chose. Seigneur, je Te demande le bien de cette nuit et le bien de ce qui suivra, et je cherche refuge auprès de Toi contre le mal de cette nuit et le mal de ce qui suivra. Seigneur, je cherche refuge auprès de Toi contre la paresse et la mauvaise vieillesse. Seigneur, je cherche refuge auprès de Toi contre un châtiment dans le Feu et un châtiment dans la tombe.</div>
+    <div class="card-fadl">Réunit la glorification d'Allah, la reconnaissance et la demande du bien pour toute la nuit.</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم بك أمسينا</span>
+        <span class="card-title-fr">Seigneur, c'est par Toi que nous voici au soir</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par At-Tirmidhi — authentique</div>
+    <div class="card-dhikr">اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ الْمَصِيرُ</div>
+    <div class="card-translation">Ô Allah, c'est par Toi que nous voici au soir, par Toi que nous arrivons au matin, par Toi que nous vivons, par Toi que nous mourons, et vers Toi est notre devenir.</div>
+    <div class="card-fadl">Reconnaître qu'Allah seul est la source de toute vie et l'aboutissement de toute fin.</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سيد الاستغفار</span>
+        <span class="card-title-fr">Le maître des formules de pardon</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Al-Bukhari — authentique</div>
+    <div class="card-dhikr">اللَّهُمَّ أَنْتَ رَبِّي، لاَ إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي، فَاغْفِرْ لِي؛ فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ</div>
+    <div class="card-translation">Ô Allah, Tu es mon Seigneur, nulle divinité sauf Toi. Tu m'as créé et je suis Ton serviteur, je m'efforce de tenir mon engagement et ma promesse envers Toi autant que je le peux. Je cherche refuge auprès de Toi contre le mal que j'ai commis. Je reconnais devant Toi Ton bienfait sur moi, et je reconnais mon péché. Pardonne-moi donc, car nul ne pardonne les péchés sauf Toi.</div>
+    <div class="card-fadl">Celui qui la dit le soir avec certitude et meurt dans sa nuit entre au Paradis.</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم إني أمسيت أشهدك</span>
+        <span class="card-title-fr">Ô Allah, je Te prends à témoin en ce soir</span>
+      </div>
+      <span class="card-count">× 4</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud et An-Nasa'i — bon (hasan)</div>
+    <div class="card-dhikr">اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلاَئِكَتَكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ لاَ إِلَهَ إِلاَّ أَنْتَ وَحْدَكَ لاَ شَرِيكَ لَكَ، وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ</div>
+    <div class="card-translation">Ô Allah, je voici au soir et je Te prends à témoin, ainsi que les porteurs de Ton Trône, Tes anges et toute Ta création, que Tu es Allah, qu'il n'y a nulle divinité sauf Toi, Toi Seul sans associé, et que Mouhammad est Ton serviteur et Ton messager.</div>
+    <div class="card-fadl">Celui qui le dit quatre fois le matin ou le soir, Allah l'affranchit du Feu.</div>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم ما أمسى بي من نعمة</span>
+        <span class="card-title-fr">Reconnaissance pour tout bienfait</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud et Ibn Hibban — bon (hasan)</div>
+    <div class="card-dhikr">اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ، فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ</div>
+    <div class="card-translation">Ô Allah, tout bienfait qui m'est parvenu ce soir, ou qui est parvenu à l'une de Tes créatures, provient de Toi Seul, sans associé. À Toi donc la louange, et à Toi la gratitude.</div>
+    <div class="card-fadl">Celui qui la dit le soir a accompli la gratitude due pour sa nuit entière.</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم عافني في بدني</span>
+        <span class="card-title-fr">Demande de bonne santé</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud et Ahmad — bon (hasan)</div>
+    <div class="card-dhikr">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أَنْتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكُفْرِ وَالْفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ</div>
+    <div class="card-translation">Ô Allah, préserve mon corps en bonne santé. Ô Allah, préserve mon ouïe. Ô Allah, préserve ma vue. Nulle divinité sauf Toi. Ô Allah, je cherche refuge auprès de Toi contre la mécréance et la pauvreté, et je cherche refuge auprès de Toi contre le châtiment de la tombe. Nulle divinité sauf Toi.</div>
+    <div class="card-fadl">Préserve le corps et les sens des maladies et des épreuves.</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">حسبي الله</span>
+        <span class="card-title-fr">Allah me suffit</span>
+      </div>
+      <span class="card-count">× 7</span>
+    </div>
+    <div class="card-source">Rapporté par Ibn as-Sunni et Abou Dawoud — authentique</div>
+    <div class="card-dhikr">حَسْبِيَ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ، عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</div>
+    <div class="card-translation">Allah me suffit, nulle divinité sauf Lui ; je m'en remets à Lui, et Il est le Seigneur du Trône immense.</div>
+    <div class="card-fadl">Celui qui la dit sept fois matin et soir, Allah lui suffit pour tout ce qui le préoccupe, dans cette vie comme dans l'au-delà.</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">العفو والعافية في كل شيء</span>
+        <span class="card-title-fr">Le pardon et le bien-être en toute chose</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud et Ibn Maja — authentique</div>
+    <div class="card-dhikr">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي، وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ، وَمِنْ خَلْفِي، وَعَنْ يَمِينِي، وَعَنْ شِمَالِي، وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي</div>
+    <div class="card-translation">Ô Allah, je Te demande le pardon et le bien-être dans cette vie et dans l'au-delà. Ô Allah, je Te demande le pardon et le bien-être dans ma religion, ma vie d'ici-bas, ma famille et mes biens. Ô Allah, couvre mes fragilités, et apaise mes craintes. Ô Allah, protège-moi devant moi, derrière moi, à ma droite, à ma gauche, et au-dessus de moi ; et je cherche refuge en Ta grandeur contre le fait d'être surpris par le mal venant d'en dessous de moi.</div>
+    <div class="card-fadl">Le Prophète ﷺ ne manquait jamais de la dire, matin et soir : une protection complète, des six directions.</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">اللهم عالم الغيب والشهادة</span>
+        <span class="card-title-fr">Ô Toi qui connais l'invisible et le visible</span>
+      </div>
+      <span class="card-count">× 1</span>
+    </div>
+    <div class="card-source">Rapporté par At-Tirmidhi et Abou Dawoud — authentique</div>
+    <div class="card-dhikr">اللَّهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ، فَاطِرَ السَّمَاوَاتِ وَالأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءًا أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ</div>
+    <div class="card-translation">Ô Allah, Toi qui connais l'invisible et le visible, Créateur des cieux et de la terre, Seigneur et Souverain de toute chose, je témoigne qu'il n'y a nulle divinité sauf Toi. Je cherche refuge auprès de Toi contre le mal de mon âme, contre le mal du Diable et de ce vers quoi il associe, et contre le fait de commettre un mal envers moi-même ou de l'attirer sur un musulman.</div>
+    <div class="card-fadl">Protège du mal de l'âme, du Diable, et de tout tort fait à autrui.</div>
+  </div>
+
+  <!-- 13 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">بسم الله الذي لا يضر</span>
+        <span class="card-title-fr">Au nom d'Allah avec lequel rien ne peut nuire</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Rapporté par Abou Dawoud et At-Tirmidhi — authentique</div>
+    <div class="card-dhikr">بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الأَرْضِ وَلاَ فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</div>
+    <div class="card-translation">Au nom d'Allah, avec le nom duquel rien ne peut nuire, ni sur la terre ni dans le ciel ; Il est Celui qui entend tout, qui sait tout.</div>
+    <div class="card-fadl">Celui qui la dit trois fois le matin et trois fois le soir n'est atteint par aucun mal.</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">رضيت بالله رباً</span>
+        <span class="card-title-fr">Je me satisfais d'Allah comme Seigneur</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Rapporté par Ahmad, An-Nasa'i, At-Tirmidhi — bon (hasan)</div>
+    <div class="card-dhikr">رَضِيتُ بِاللَّهِ رَبًّا، وَبِالإِسْلاَمِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا</div>
+    <div class="card-translation">Je me satisfais d'Allah comme Seigneur, de l'Islam comme religion, et de Mouhammad — qu'Allah le bénisse et lui accorde la paix — comme prophète.</div>
+    <div class="card-fadl">Celui qui la dit trois fois matin et soir, Allah s'engage à le satisfaire au Jour de la Résurrection.</div>
+  </div>
+
+  <!-- 15 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">سبحان الله وبحمده</span>
+        <span class="card-title-fr">Gloire et louange à Allah</span>
+      </div>
+      <span class="card-count">× 100</span>
+    </div>
+    <div class="card-source">Rapporté par Muslim — authentique</div>
+    <div class="card-dhikr">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</div>
+    <div class="card-translation">Gloire et pureté à Allah, et louange à Lui.</div>
+    <div class="card-fadl">Celui qui le dit cent fois, nul ne viendra le Jour de la Résurrection avec mieux que lui, sauf celui qui en a dit autant ou davantage.</div>
+  </div>
+
+  <!-- 16 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">لا إله إلا الله وحده لا شريك له</span>
+        <span class="card-title-fr">Nulle divinité sauf Allah, Seul, sans associé</span>
+      </div>
+      <span class="card-count">× 100</span>
+    </div>
+    <div class="card-source">Rapporté par Al-Bukhari et Muslim — authentique</div>
+    <div class="card-dhikr">لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</div>
+    <div class="card-translation">Nulle divinité sauf Allah, Seul, sans associé. À Lui la royauté, à Lui la louange, et Il est capable de toute chose.</div>
+    <div class="card-fadl">Cent fois équivaut à libérer dix esclaves, fait inscrire cent bonnes actions, efface cent péchés, et protège du Diable toute la nuit.</div>
+  </div>
+
+  <!-- 17 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">أعوذ بكلمات الله التامات من شر ما خلق</span>
+        <span class="card-title-fr">Protection par les paroles parfaites d'Allah</span>
+      </div>
+      <span class="card-count">× 3</span>
+    </div>
+    <div class="card-source">Rapporté par Muslim — authentique · À dire le soir uniquement</div>
+    <div class="card-dhikr">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</div>
+    <div class="card-translation">Je cherche refuge dans les paroles parfaites d'Allah contre le mal de ce qu'Il a créé.</div>
+    <div class="card-fadl">Le Prophète ﷺ a dit : « Celui qui la dit quand il arrive dans un lieu ne sera pas blessé jusqu'à ce qu'il quitte cet endroit. » — Spécifique au soir et à l'arrivée dans un lieu.</div>
+  </div>
+
+  <!-- 18 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">الصلاة على النبي ﷺ</span>
+        <span class="card-title-fr">Prière et salut sur le Prophète ﷺ</span>
+      </div>
+      <span class="card-count">× 10</span>
+    </div>
+    <div class="card-source">Rapporté par At-Tabarani — bon (hasan)</div>
+    <div class="card-dhikr">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ</div>
+    <div class="card-translation">Ô Allah, envoie Ta prière et Ton salut sur notre Prophète Mouhammad.</div>
+    <div class="card-fadl">Le Prophète ﷺ a dit : « Celui qui envoie la prière sur moi dix fois le matin et dix fois le soir, ma intercession l'atteindra le Jour de la Résurrection. »</div>
+  </div>
+
+  <!-- 19 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-titles">
+        <span class="card-title-ar">أستغفر الله وأتوب إليه</span>
+        <span class="card-title-fr">Je demande pardon à Allah et me repens à Lui</span>
+      </div>
+      <span class="card-count">× 100</span>
+    </div>
+    <div class="card-source">Rapporté par Al-Bukhari et Muslim — authentique</div>
+    <div class="card-dhikr">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</div>
+    <div class="card-translation">Je demande pardon à Allah et je me repens à Lui.</div>
+    <div class="card-fadl">Le Prophète ﷺ demandait le pardon plus de cent fois par jour. L'istighfar efface les péchés, ouvre les portes du rizq et apaise le cœur.</div>
+  </div>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="ayah">﴿ وَاذْكُرْ رَبَّكَ فِي نَفْسِكَ تَضَرُّعًا وَخِيفَةً ﴾</span>
+  <span class="ayah-fr">« Invoque ton Seigneur avec humilité et crainte » — Al-A'raf, 205</span>
+  اللهم تقبّل منّا — والحمد لله ربّ العالمين
+  <small>Hisn al-Muslim · Cheikh Sa'id al-Qahtani · Bukhari, Muslim, Abou Dawoud, Tirmidhi, Nasâ'i, Ahmad</small>
+  <div class="footer-signature">
+    <span class="footer-signature-orn">✦ ✦ ✦</span>
+    <span class="footer-signature-name">Bouraïma Mouhamed H.A.I.</span>
+    <span class="footer-signature-role">Conception & développement</span>
+    <div class="footer-signature-links">
+      <a class="footer-signature-link" href="https://wa.me/2290156382714" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a class="footer-signature-link" href="mailto:mouhamedbouraima122@gmail.com">✉️ Email</a>
+    </div>
+  </div>
+</footer>
+
+<!-- BARRE NAVIGATION BAS -->
+<nav class="bottom-nav">
+  <button class="nav-item active" id="navMatin" onclick="setMode('matin')">
+    <span class="nav-icon">🌅</span>
+    <span class="nav-label">Matin</span>
+  </button>
+  <div class="nav-sep"></div>
+  <button class="nav-item" id="navSoir" onclick="setMode('soir')">
+    <span class="nav-icon">🌙</span>
+    <span class="nav-label">Soir</span>
+  </button>
+  <div class="nav-sep"></div>
+  <button class="nav-item" onclick="openModal('modalTheme')">
+    <span class="nav-icon" id="themeNavIcon">⚙️</span>
+    <span class="nav-label">Réglages</span>
+  </button>
+  <div class="nav-sep"></div>
+  <button class="nav-item" onclick="openModal('modalShare')">
+    <span class="nav-icon">📤</span>
+    <span class="nav-label">Partager</span>
+  </button>
+  <div class="nav-sep"></div>
+  <button class="nav-item" onclick="openModal('modalAide')">
+    <span class="nav-icon">❓</span>
+    <span class="nav-label">Aide</span>
+  </button>
+</nav>
+
+<!-- MODAL THÈME -->
+<div class="modal-overlay" id="modalTheme" onclick="closeOnOverlay(event,'modalTheme')">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">
+      Réglages
+      <button class="modal-close" onclick="closeModal('modalTheme')" aria-label="Fermer">✕</button>
+      <small>Apparence et voix de lecture</small>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section-title">🎨 Apparence</div>
+      <div class="theme-options">
+        <div class="theme-opt" id="opt-light" onclick="setTheme('light')">
+          <span class="theme-opt-icon">☀️</span>
+          <div class="theme-opt-info">
+            <div class="theme-opt-name">Clair</div>
+            <div class="theme-opt-desc">Fond crème, tons dorés</div>
+          </div>
+          <span class="theme-opt-check">✓</span>
+        </div>
+        <div class="theme-opt" id="opt-dark" onclick="setTheme('dark')">
+          <span class="theme-opt-icon">🌙</span>
+          <div class="theme-opt-info">
+            <div class="theme-opt-name">Sombre</div>
+            <div class="theme-opt-desc">Fond noir, lecture nocturne</div>
+          </div>
+          <span class="theme-opt-check">✓</span>
+        </div>
+        <div class="theme-opt" id="opt-auto" onclick="setTheme('auto')">
+          <span class="theme-opt-icon">⚙️</span>
+          <div class="theme-opt-info">
+            <div class="theme-opt-name">Automatique</div>
+            <div class="theme-opt-desc">Suit le réglage du téléphone</div>
+          </div>
+          <span class="theme-opt-check">✓</span>
+        </div>
+      </div>
+
+      <div class="modal-section-title">📳 Vibration</div>
+      <div class="vibe-group">
+        <div class="vibe-group-label">À chaque tap (compteur)</div>
+        <div class="vibe-chips" id="vibeTapChips">
+          <div class="opt-chip" data-level="off" onclick="setVibeTap('off')">Désactivée</div>
+          <div class="opt-chip" data-level="light" onclick="setVibeTap('light')">Légère</div>
+          <div class="opt-chip" data-level="normal" onclick="setVibeTap('normal')">Normale</div>
+          <div class="opt-chip" data-level="strong" onclick="setVibeTap('strong')">Forte</div>
+        </div>
+      </div>
+      <div class="vibe-group">
+        <div class="vibe-group-label">Fin d'une invocation (vibration longue + double bip)</div>
+        <div class="vibe-chips" id="vibeDoneChips">
+          <div class="opt-chip" data-level="off" onclick="setVibeDone('off')">Désactivée</div>
+          <div class="opt-chip" data-level="light" onclick="setVibeDone('light')">Légère</div>
+          <div class="opt-chip" data-level="normal" onclick="setVibeDone('normal')">Normale</div>
+          <div class="opt-chip" data-level="strong" onclick="setVibeDone('strong')">Forte</div>
+        </div>
+      </div>
+      <div class="voice-test-btn" onclick="testVibe()">📳 Tester les vibrations</div>
+
+      <div class="modal-section-title">🎚️ Vitesse de lecture</div>
+      <div class="vibe-group">
+        <div class="vibe-chips" id="speedChips">
+          <div class="opt-chip" data-speed="0.75" onclick="setPlaybackSpeed(0.75)">× 0.75</div>
+          <div class="opt-chip" data-speed="1" onclick="setPlaybackSpeed(1)">× 1</div>
+          <div class="opt-chip" data-speed="1.5" onclick="setPlaybackSpeed(1.5)">× 1.5</div>
+          <div class="opt-chip" data-speed="2" onclick="setPlaybackSpeed(2)">× 2</div>
+        </div>
+      </div>
+
+      <div class="modal-section-title">🔊 Voix de secours</div>
+      <div style="font-family:Georgia,serif;font-size:.78rem;color:var(--ink2);margin:-4px 0 12px;line-height:1.6">
+        Par défaut, l'app joue <strong>uniquement vos enregistrements audio</strong>. Vous pouvez activer ici une voix de secours (celle du téléphone) qui prendra le relais si un fichier audio venait à manquer.
+      </div>
+      <div class="vibe-chips" id="fallbackToggleChips" style="margin-bottom:14px">
+        <div class="opt-chip" data-val="false" onclick="setFallbackEnabled(false)">Désactivée (recommandé)</div>
+        <div class="opt-chip" data-val="true" onclick="setFallbackEnabled(true)">Activée</div>
+      </div>
+      <div id="voiceOptionsWrap">
+        <div class="voice-options" id="voiceOptions">
+          <div class="voice-single">Recherche des voix disponibles sur votre téléphone…</div>
+        </div>
+      </div>
+    </div>
+    <div style="height:20px"></div>
+  </div>
+</div>
+
+<!-- MODAL PARTAGE -->
+<div class="modal-overlay" id="modalShare" onclick="closeOnOverlay(event,'modalShare')">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">
+      شارك التطبيق
+      <button class="modal-close" onclick="closeModal('modalShare')" aria-label="Fermer">✕</button>
+      <small>Partager l'application avec vos proches</small>
+    </div>
+    <div class="modal-body">
+      <div class="share-url-box">invocation-du-matin-et-du-soir.netlify.app</div>
+      <div class="share-btns">
+        <button class="sbtn sbtn-primary" onclick="shareApp()">
+          <span>📤</span><span>Partager le lien</span>
+        </button>
+        <button class="sbtn sbtn-secondary" onclick="copyLink()">
+          <span>📋</span><span>Copier le lien</span>
+        </button>
+        <button class="sbtn sbtn-secondary" onclick="downloadGuide()">
+          <span>📄</span><span>Guide d'installation (PDF)</span>
+        </button>
+      </div>
+      <div class="install-steps">
+        <h4>Comment installer l'application :</h4>
+        <div class="install-step">
+          <span class="step-icon">📱</span>
+          <span><strong>Android</strong> — Chrome → menu ⋮ → <em>Ajouter à l'écran d'accueil</em></span>
+        </div>
+        <div class="install-step">
+          <span class="step-icon">🍎</span>
+          <span><strong>iPhone</strong> — Safari → bouton Partager ↑ → <em>Sur l'écran d'accueil</em></span>
+        </div>
+        <div class="install-step">
+          <span class="step-icon">✅</span>
+          <span>Une fois installée, l'app fonctionne <strong>sans connexion</strong></span>
+        </div>
+      </div>
+    </div>
+    <div style="height:20px"></div>
+  </div>
+</div>
+
+<!-- MODAL AIDE -->
+<div class="modal-overlay" id="modalAide" onclick="closeOnOverlay(event,'modalAide')">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">
+      Comment utiliser l'application ?
+      <button class="modal-close" onclick="closeModal('modalAide')" aria-label="Fermer">✕</button>
+      <small>Un guide simple, étape par étape</small>
+    </div>
+    <div class="modal-body">
+
+      <div class="aide-block">
+        <div class="aide-h"><span class="aide-num">1</span>Choisir Matin ou Soir</div>
+        <div class="aide-p">En bas de l'écran, appuyez sur <strong>🌅 Matin</strong> le matin, ou sur <strong>🌙 Soir</strong> le soir. La liste des invocations change automatiquement.</div>
+      </div>
+
+      <div class="aide-block">
+        <div class="aide-h"><span class="aide-num">2</span>Lire une carte</div>
+        <div class="aide-p">Chaque invocation est écrite dans une carte : le <strong>grand texte en arabe</strong> en haut, puis juste en dessous sa <strong>traduction en français</strong>, et enfin son <strong>mérite</strong> (pourquoi la dire).</div>
+      </div>
+
+      <div class="aide-block">
+        <div class="aide-h"><span class="aide-num">3</span>Le nombre "× 3"</div>
+        <div class="aide-p">Le badge (par exemple <strong>1 ➜ /3</strong>) indique <strong>où vous en êtes</strong> sur le nombre de répétitions. <strong>Appuyez n'importe où sur la carte</strong> après chaque répétition — pas besoin de viser précisément. Le téléphone vibre légèrement à chaque appui, et quand l'invocation est terminée, une <strong>vibration longue puis un double bip</strong> marquent la fin, avant que le badge devienne <strong>✓</strong>. Un appui de plus le remet à zéro. Et quand <strong>tout</strong> le bloc (matin ou soir) est terminé, un message de clôture apparaît.</div>
+      </div>
+
+      <div class="aide-block">
+        <div class="aide-h"><span class="aide-num">4</span>Écouter une invocation 🔊</div>
+        <div class="aide-p">En bas de chaque carte, le bouton <strong>🔊 Écouter</strong> joue la <strong>récitation enregistrée</strong> de cette invocation. Appuyez à nouveau dessus pour arrêter. Il est séparé du reste de la carte, donc pas de risque de le déclencher par erreur en comptant.</div>
+      </div>
+
+      <div class="aide-block">
+        <div class="aide-h"><span class="aide-num">5</span>Tout écouter d'un coup</div>
+        <div class="aide-p">Le bouton rond <strong>🔊 Écouter tout</strong> en bas à droite lit, l'une après l'autre, toutes les invocations du moment choisi (Matin ou Soir). Pratique les mains libres.</div>
+      </div>
+
+      <div class="aide-block">
+        <div class="aide-h"><span class="aide-num">6</span>Changer l'apparence ou la voix</div>
+        <div class="aide-p">Appuyez sur <strong>⚙️ Réglages</strong> en bas pour choisir un fond clair, sombre ou automatique, régler la <strong>force des vibrations</strong>, la <strong>vitesse de lecture</strong> (× 0.75 à × 2), et la voix de secours si besoin.</div>
+      </div>
+
+      <div class="aide-block">
+        <div class="aide-h"><span class="aide-num">7</span>Installer l'application</div>
+        <div class="aide-p">Appuyez sur <strong>📤 Partager</strong>, puis sur <strong>📄 Guide d'installation</strong> : un document s'ouvre avec les étapes pour ajouter l'icône sur votre écran d'accueil.</div>
+      </div>
+
+      <div class="about-dev">
+        <div class="about-dev-title">Une question, une suggestion ?</div>
+        <div class="about-dev-name">Application développée par Bouraïma Mouhamed H.A.I.</div>
+        <div class="share-btns" style="margin-top:12px">
+          <a class="sbtn sbtn-primary" href="https://wa.me/2290156382714" target="_blank" rel="noopener">💬 Écrire sur WhatsApp</a>
+          <a class="sbtn sbtn-secondary" href="mailto:mouhamedbouraima122@gmail.com">✉️ Envoyer un email</a>
+        </div>
+      </div>
+
+    </div>
+    <div style="height:20px"></div>
+  </div>
+</div>
+
+<!-- MODAL CÉLÉBRATION — tous les adhkar du bloc actif sont terminés -->
+<div class="modal-overlay" id="modalCelebration" onclick="closeOnOverlay(event,'modalCelebration')">
+  <div class="modal modal-celebration">
+    <div class="modal-handle"></div>
+    <div class="celebration-orn">✦ ✧ ✦</div>
+    <div class="celebration-title" id="celebrationTitle">Adhkar terminés</div>
+    <div class="celebration-message" id="celebrationMessage"></div>
+    <div class="celebration-actions">
+      <button class="sbtn sbtn-primary" onclick="closeModal('modalCelebration')">🤲 Amîn</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const APP_URL = 'https://invocation-du-matin-et-du-soir.netlify.app/';
+
+// ── SERVICE WORKER (fichier réel /sw.js) ───────────────────────────────────
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js', {scope: '/'})
+      .then(reg => {
+        // Forcer mise en cache de la page actuelle
+        if (navigator.serviceWorker.controller) {
+          navigator.serviceWorker.controller.postMessage({
+            type: 'CACHE_NOW',
+            urls: [location.href]
+          });
+        }
+        console.log('✓ SW enregistré');
+      })
+      .catch(e => console.warn('SW erreur:', e));
+  });
+}
+
+// ── MANIFEST ────────────────────────────────────────────────────────────────
+// Le manifest est servi via /manifest.json (fichier séparé)
+
+// ── THÈME ───────────────────────────────────────────────────────────────────
+let currentTheme = localStorage.getItem('adhkar-theme') || 'auto';
+const themeIcons = {light:'☀️', dark:'🌙', auto:'⚙️'};
+
+function applyTheme(t) {
+  let actual = t;
+  if (t === 'auto') actual = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', actual);
+  document.getElementById('themeNavIcon').textContent = themeIcons[t];
+  document.getElementById('themeColorMeta').content = actual === 'dark' ? '#0D0904' : '#9C7326';
+  ['light','dark','auto'].forEach(x => {
+    document.getElementById('opt-'+x).classList.toggle('selected', x === t);
+  });
+}
+function setTheme(t) {
+  currentTheme = t;
+  localStorage.setItem('adhkar-theme', t);
+  applyTheme(t);
+  setTimeout(() => closeModal('modalTheme'), 300);
+}
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change', () => {
+  if (currentTheme === 'auto') applyTheme('auto');
+});
+applyTheme(currentTheme);
+
+// ── TABS ────────────────────────────────────────────────────────────────────
+let currentMode = 'matin';
+function setMode(m) {
+  const isMatin = m === 'matin';
+  currentMode = m;
+  stopAllSpeech();
+  document.getElementById('tabMatin').classList.toggle('is-active', isMatin);
+  document.getElementById('tabSoir').classList.toggle('is-active', !isMatin);
+  document.querySelector('.tab-matin').classList.toggle('is-active', isMatin);
+  document.querySelector('.tab-soir').classList.toggle('is-active', !isMatin);
+  document.getElementById('blocMatin').classList.toggle('is-active', isMatin);
+  document.getElementById('blocSoir').classList.toggle('is-active', !isMatin);
+  document.getElementById('navMatin').classList.toggle('active', isMatin);
+  document.getElementById('navSoir').classList.toggle('active', !isMatin);
+  const fab = document.getElementById('fabPlayAll');
+  if (fab) fab.classList.toggle('mode-soir', !isMatin);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ── AUDIO — Fichiers pré-enregistrés (priorité) + voix système (secours) ───
+// Convention de nommage : audio/matin/matin-01.mp3, audio/matin/matin-02.mp3…
+//                         audio/soir/soir-01.mp3,   audio/soir/soir-02.mp3…
+// Numérotation = ordre d'affichage des cartes, de haut en bas.
+// Si un fichier n'existe pas encore (404), l'app bascule automatiquement,
+// sans rien casser, sur la voix du téléphone (silencieusement).
+const AUDIO_BASE = 'audio/';
+let audioEl = null;
+function getAudioEl() {
+  if (!audioEl) {
+    audioEl = new Audio();
+    audioEl.preload = 'none';
+  }
+  audioEl.playbackRate = playbackSpeed;
+  return audioEl;
+}
+
+// ── Vitesse de lecture (fichiers audio + voix de secours) ──────────────────
+let playbackSpeed = parseFloat(localStorage.getItem('adhkar-speed') || '1');
+function setPlaybackSpeed(speed) {
+  playbackSpeed = speed;
+  localStorage.setItem('adhkar-speed', String(speed));
+  if (audioEl) audioEl.playbackRate = speed;
+  renderSpeedChips();
+}
+function renderSpeedChips() {
+  document.querySelectorAll('#speedChips .opt-chip').forEach(c => {
+    c.classList.toggle('selected', parseFloat(c.dataset.speed) === playbackSpeed);
+  });
+}
+// Correspondance position de carte (1-based, après découpage des 3 Qul) → fichier audio.
+// Carte 1 (invocation d'ouverture) : pas d'audio.
+// Cartes 3-4-5 (Al-Ikhlas / Al-Falaq / An-Nas) : fichiers -03-1 / -03-2 / -03-3.
+// Toutes les autres cartes : numérotées normalement (position - 2), inchangé sinon.
+function audioFileFor(mode, position) {
+  if (position === 1) return null;
+  if (position === 3) return AUDIO_BASE + mode + '/' + mode + '-03-1.mp3';
+  if (position === 4) return AUDIO_BASE + mode + '/' + mode + '-03-2.mp3';
+  if (position === 5) return AUDIO_BASE + mode + '/' + mode + '-03-3.mp3';
+  const fileNum = position <= 2 ? position : position - 2;
+  const n = String(fileNum).padStart(2, '0');
+  return AUDIO_BASE + mode + '/' + mode + '-' + n + '.mp3';
+}
+
+let arabicVoices = [];
+let selectedVoiceURI = localStorage.getItem('adhkar-voice') || null;
+let activeBtn = null;         // bouton 🔊 actuellement en lecture
+let readAllQueue = [];        // file d'attente pour "Écouter tout" : [{text, audioSrc}]
+let readAllIndex = 0;
+let isReadingAll = false;
+let currentUtterance = null;  // référence gardée en vie pour éviter le garbage collector (voix de secours)
+let keepAliveTimer = null;    // anti-coupure Chrome Android (~15s) pour la voix de secours
+let speakWatchdog = null;
+
+// Par défaut, l'app joue UNIQUEMENT les fichiers audio fournis. La voix du
+// téléphone (Web Speech API) reste disponible mais désactivée par défaut ;
+// on ne l'active que si l'utilisateur le demande explicitement en Réglages.
+let fallbackEnabled = localStorage.getItem('adhkar-fallback-enabled') === 'true';
+function setFallbackEnabled(v) {
+  fallbackEnabled = v;
+  localStorage.setItem('adhkar-fallback-enabled', String(v));
+  renderFallbackToggle();
+  renderVoiceOptions();
+}
+function renderFallbackToggle() {
+  document.querySelectorAll('#fallbackToggleChips .opt-chip').forEach(c => {
+    c.classList.toggle('selected', c.dataset.val === String(fallbackEnabled));
+  });
+  const wrap = document.getElementById('voiceOptionsWrap');
+  if (wrap) wrap.style.display = fallbackEnabled ? '' : 'none';
+}
+
+let allVoicesCount = 0;
+function loadVoices() {
+  const all = speechSynthesis.getVoices ? speechSynthesis.getVoices() : [];
+  allVoicesCount = all.length;
+  arabicVoices = all.filter(v => v.lang && v.lang.toLowerCase().replace('_', '-').startsWith('ar'));
+  renderVoiceOptions();
+}
+if ('speechSynthesis' in window) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+  loadVoices();
+  [300, 800, 1500, 3000, 6000, 10000].forEach(delay => setTimeout(loadVoices, delay));
+}
+
+function guessVoiceIcon(name) {
+  const n = name.toLowerCase();
+  if (/female|femme|woman|zira|salma|hoda/.test(n)) return '👩';
+  if (/male|homme|man|hamed|majed/.test(n)) return '👨';
+  return '🎙️';
+}
+function guessVoiceLabel(name, idx) {
+  const n = name.toLowerCase();
+  if (/female|femme|woman|zira|salma|hoda/.test(n)) return 'Voix féminine';
+  if (/male|homme|man|hamed|majed/.test(n)) return 'Voix masculine';
+  return 'Voix ' + (idx + 1);
+}
+function renderVoiceOptions() {
+  const box = document.getElementById('voiceOptions');
+  if (!box) return;
+  if (!arabicVoices.length) {
+    box.innerHTML =
+      '<div class="voice-empty">Aucune voix de secours arabe trouvée sur ce téléphone pour l\'instant. ' +
+      'Ce n\'est pas grave si vos fichiers audio sont bien en place — ils sont prioritaires et n\'en ont pas besoin.<br><br>' +
+      '<div class="voice-retry" onclick="loadVoices()">🔄 Revérifier maintenant</div></div>';
+    return;
+  }
+  const listHtml = arabicVoices.length === 1
+    ? '<div class="voice-single">Voix de secours disponible : <strong>' + arabicVoices[0].name + '</strong></div>'
+    : arabicVoices.map((v, i) => {
+        const sel = v.voiceURI === selectedVoiceURI || (!selectedVoiceURI && i === 0);
+        return '<div class="voice-opt' + (sel ? ' selected' : '') + '" onclick="selectVoice(\'' + v.voiceURI.replace(/'/g, "\\'") + '\')">' +
+          '<span class="voice-opt-icon">' + guessVoiceIcon(v.name) + '</span>' +
+          '<div class="voice-opt-info"><div class="voice-opt-name">' + guessVoiceLabel(v.name, i) + '</div>' +
+          '<div class="voice-opt-desc">' + v.name + '</div></div>' +
+          '<span class="voice-opt-check">✓</span></div>';
+      }).join('');
+  if (!selectedVoiceURI) selectedVoiceURI = arabicVoices[0].voiceURI;
+  box.innerHTML = listHtml + '<div class="voice-test-btn" onclick="testVoice()">▶️ Tester la voix de secours</div>';
+}
+function selectVoice(uri) {
+  selectedVoiceURI = uri;
+  localStorage.setItem('adhkar-voice', uri);
+  renderVoiceOptions();
+  testVoice();
+}
+function testVoice() {
+  speakRaw('السلام عليكم ورحمة الله وبركاته', {});
+}
+function getSelectedVoice() {
+  if (!arabicVoices.length) return null;
+  return arabicVoices.find(v => v.voiceURI === selectedVoiceURI) || arabicVoices[0];
+}
+
+// Voix de secours (Web Speech API) — utilisée UNIQUEMENT si le fichier audio est absent.
+function speakRaw(text, {onstart, onend, onerror} = {}) {
+  if (!('speechSynthesis' in window)) { if (onerror) onerror(); return; }
+  clearTimeout(speakWatchdog);
+  speechSynthesis.cancel();
+  setTimeout(() => {
+    try { if (speechSynthesis.paused) speechSynthesis.resume(); } catch (e) {}
+    const utter = new SpeechSynthesisUtterance(text);
+    const v = getSelectedVoice();
+    if (v) { utter.voice = v; utter.lang = v.lang; } else { utter.lang = 'ar-SA'; }
+    utter.rate = Math.min(3, Math.max(0.3, .85 * playbackSpeed));
+    utter.pitch = 1;
+    let started = false;
+    utter.onstart = () => {
+      started = true;
+      clearTimeout(speakWatchdog);
+      clearInterval(keepAliveTimer);
+      keepAliveTimer = setInterval(() => {
+        if (speechSynthesis.speaking) { speechSynthesis.pause(); speechSynthesis.resume(); }
+      }, 4000);
+      if (onstart) onstart();
+    };
+    utter.onend = () => { clearInterval(keepAliveTimer); currentUtterance = null; if (onend) onend(); };
+    utter.onerror = () => { clearInterval(keepAliveTimer); currentUtterance = null; if (onerror) onerror(); };
+    currentUtterance = utter;
+    speechSynthesis.speak(utter);
+    speakWatchdog = setTimeout(() => { if (!started && onerror) onerror(); }, 2500);
+  }, 80);
+}
+
+// Lecture d'une invocation : fichier pré-enregistré en priorité, voix de secours sinon.
+function playAudioOrFallback(audioSrc, fallbackText, {onstart, onend, onerror} = {}) {
+  const a = getAudioEl();
+  a.onplay = null; a.onended = null; a.onerror = null;
+  a.pause();
+  try { a.currentTime = 0; } catch (e) {}
+  let usedFallback = false;
+  const tryFallback = () => {
+    if (usedFallback) return;
+    usedFallback = true;
+    if (fallbackEnabled) {
+      speakRaw(fallbackText, { onstart, onend, onerror });
+    } else if (onerror) {
+      onerror();
+    }
+  };
+  a.src = audioSrc;
+  a.onplay = () => { if (onstart) onstart(); };
+  a.onended = () => { if (onend) onend(); };
+  a.onerror = tryFallback;
+  a.play().then(() => {}).catch(tryFallback);
+}
+function stopAudioOrSpeech() {
+  clearInterval(keepAliveTimer);
+  clearTimeout(speakWatchdog);
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
+  const a = getAudioEl();
+  a.onplay = null; a.onended = null; a.onerror = null;
+  a.pause();
+  currentUtterance = null;
+}
+
+function resetAudioBtn(btn) {
+  if (!btn) return;
+  btn.classList.remove('is-playing');
+  const lbl = btn.querySelector('.audio-btn-label');
+  if (lbl) lbl.textContent = 'Écouter';
+}
+function stopAllSpeech() {
+  stopAudioOrSpeech();
+  if (activeBtn) resetAudioBtn(activeBtn);
+  activeBtn = null;
+  stopReadAll();
+}
+function toggleSpeakCard(btn, text, audioSrc) {
+  stopReadAll();
+  if (activeBtn === btn) {
+    stopAllSpeech();
+    return;
+  }
+  if (activeBtn) resetAudioBtn(activeBtn);
+  stopAudioOrSpeech();
+  activeBtn = btn;
+  playAudioOrFallback(audioSrc, text, {
+    onstart: () => { btn.classList.add('is-playing'); const lbl = btn.querySelector('.audio-btn-label'); if (lbl) lbl.textContent = 'Pause'; },
+    onend:   () => { resetAudioBtn(btn); if (activeBtn === btn) activeBtn = null; },
+    onerror: () => {
+      resetAudioBtn(btn);
+      if (activeBtn === btn) activeBtn = null;
+      alert(fallbackEnabled
+        ? 'Impossible de lire cette invocation : ni le fichier audio, ni la voix du téléphone ne sont disponibles.'
+        : 'Le fichier audio de cette invocation est introuvable.\n\nVous pouvez activer la voix de secours dans ⚙️ Réglages, ou ajouter le fichier audio correspondant.');
+    }
+  });
+}
+
+// Injecte un bouton 🔊 sur chaque carte + calcule le nom de fichier attendu,
+// sans toucher au contenu religieux
+// ── Compteur de répétitions tactile — toute la carte est la zone de tap ────
+// On tape n'importe où sur la carte (sauf le bouton 🔊 dédié) pour décompter
+// une répétition : grande cible, utilisable d'une main sans regarder l'écran,
+// à la manière d'un tasbih. Vibration courte à chaque tap, vibration longue
+// + double bip et petite animation quand une invocation est terminée (✓).
+function todayKey() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+function loadProgress() {
+  try {
+    const raw = JSON.parse(localStorage.getItem('adhkar-progress-v2') || 'null');
+    if (raw && raw.date === todayKey()) return raw.counts || {};
+  } catch (e) {}
+  return {};
+}
+function saveProgress() {
+  try { localStorage.setItem('adhkar-progress-v2', JSON.stringify({ date: todayKey(), counts: progressCounts })); } catch (e) {}
+}
+function vibrate(pattern) {
+  try { if ('vibrate' in navigator) navigator.vibrate(pattern); } catch (e) {}
+}
+
+// ── Réglages de vibration ────────────────────────────────────────────────
+// Tap : petit à-coup à chaque répétition.
+// Fin d'invocation : vibration LONGUE (1 à 2s) qui se termine par un double
+// bip net — pour bien sentir la différence entre "encore en cours" et
+// "c'est fini", sans avoir à regarder l'écran.
+const VIBE_TAP_MS = { off: 0, light: 30, normal: 55, strong: 90 };
+const VIBE_DONE_PATTERN = {
+  off: [],
+  light:  [1000, 200, 70, 110, 70],
+  normal: [1500, 220, 90, 110, 90],
+  strong: [2000, 250, 110, 120, 110]
+};
+let vibeTapLevel = localStorage.getItem('adhkar-vibe-tap') || 'normal';
+let vibeDoneLevel = localStorage.getItem('adhkar-vibe-done') || 'normal';
+function vibrateTap() {
+  const ms = VIBE_TAP_MS[vibeTapLevel] || 0;
+  if (ms > 0) vibrate(ms);
+}
+function vibrateDone() {
+  const pattern = VIBE_DONE_PATTERN[vibeDoneLevel];
+  if (pattern && pattern.length) vibrate(pattern);
+}
+function setVibeTap(level) { vibeTapLevel = level; localStorage.setItem('adhkar-vibe-tap', level); renderVibeChips(); }
+function setVibeDone(level) { vibeDoneLevel = level; localStorage.setItem('adhkar-vibe-done', level); renderVibeChips(); }
+function testVibe() { vibrateTap(); setTimeout(vibrateDone, 550); }
+function renderVibeChips() {
+  document.querySelectorAll('#vibeTapChips .opt-chip').forEach(c => c.classList.toggle('selected', c.dataset.level === vibeTapLevel));
+  document.querySelectorAll('#vibeDoneChips .opt-chip').forEach(c => c.classList.toggle('selected', c.dataset.level === vibeDoneLevel));
+}
+
+// ── Célébration de fin de session (tout le tasbih du matin/soir terminé) ──
+// Vibration distincte, différente des deux précédentes, + message tiré au
+// sort parmi plusieurs variantes pour ne pas être répétitif.
+const SESSION_DONE_VIBRATION = [70, 90, 70, 90, 160];
+const SESSION_MESSAGES = {
+  matin: [
+    "Tu as terminé tous tes adhkar du matin. Qu'Allah illumine ta journée et te préserve de tout mal — آمين.",
+    "Alhamdulillah, tous les adhkar du matin sont accomplis. Que cette journée soit pleine de baraka pour toi.",
+    "C'est fait ! Tes adhkar du matin sont terminés. Qu'Allah te couvre de Sa protection jusqu'au soir.",
+    "Tous les adhkar du matin récités avec constance. Qu'Allah accepte cet effort et t'accorde une journée sereine, in shâ Allah.",
+    "Beau moment de dhikr achevé. Que le Miséricordieux garde ton cœur apaisé tout au long de la journée."
+  ],
+  soir: [
+    "Tu as terminé tous tes adhkar du soir. Qu'Allah t'accorde une nuit paisible et une protection totale.",
+    "Alhamdulillah, tous les adhkar du soir sont accomplis. Que cette nuit soit douce et bénie pour toi.",
+    "C'est fait ! Que le sommeil qui vient soit un repos béni, à l'abri de tout mal, in shâ Allah.",
+    "Tous les adhkar du soir récités avec constance. Qu'Allah t'accorde le meilleur en cette vie et dans l'au-delà — آمين.",
+    "Beau moment de dhikr achevé. Que cette nuit t'apporte paix, protection, et de beaux rêves."
+  ]
+};
+let sessionCelebrated = { matin: false, soir: false };
+let lastMessageIndex = { matin: -1, soir: -1 };
+
+function isModeComplete(mode) {
+  const bloc = document.getElementById(mode === 'matin' ? 'blocMatin' : 'blocSoir');
+  if (!bloc) return false;
+  const cards = Array.from(bloc.querySelectorAll('.card'));
+  const trackable = cards.filter(c => parseInt(c.dataset.totalCount || '0', 10) > 0);
+  if (!trackable.length) return false;
+  return trackable.every(c => {
+    const total = parseInt(c.dataset.totalCount, 10);
+    const current = progressCounts[c.dataset.cardId] !== undefined ? progressCounts[c.dataset.cardId] : 0;
+    return current >= total;
+  });
+}
+
+function checkSessionCompletion(mode) {
+  const complete = isModeComplete(mode);
+  if (complete && !sessionCelebrated[mode]) {
+    sessionCelebrated[mode] = true;
+    celebrateSessionComplete(mode);
+  } else if (!complete) {
+    sessionCelebrated[mode] = false;
+  }
+}
+
+function pickSessionMessage(mode) {
+  const list = SESSION_MESSAGES[mode] || SESSION_MESSAGES.matin;
+  if (list.length === 1) return list[0];
+  let idx = Math.floor(Math.random() * list.length);
+  if (idx === lastMessageIndex[mode]) idx = (idx + 1) % list.length;
+  lastMessageIndex[mode] = idx;
+  return list[idx];
+}
+
+function celebrateSessionComplete(mode) {
+  vibrate(SESSION_DONE_VIBRATION);
+  const msgEl = document.getElementById('celebrationMessage');
+  const titleEl = document.getElementById('celebrationTitle');
+  if (titleEl) titleEl.textContent = mode === 'matin' ? 'Adhkar du matin terminés' : 'Adhkar du soir terminés';
+  if (msgEl) msgEl.textContent = pickSessionMessage(mode);
+  openModal('modalCelebration');
+}
+
+let progressCounts = loadProgress();
+
+function setupCounter(card, cardId, total) {
+  const countEl = card.querySelector('.card-count');
+  if (!countEl || !total) return;
+  countEl.setAttribute('aria-hidden', 'true'); // la carte entière porte l'interaction (voir plus bas)
+  card.dataset.cardId = cardId;
+  card.dataset.totalCount = String(total);
+  const mode = cardId.split('-')[0];
+
+  // On affiche la PROGRESSION (nombre déjà récité → total), pas ce qu'il reste.
+  const render = () => {
+    const current = progressCounts[cardId] !== undefined ? progressCounts[cardId] : 0;
+    if (current >= total) {
+      countEl.textContent = '✓';
+      countEl.classList.add('is-done');
+    } else {
+      countEl.innerHTML = '<span class="cnt-num">' + current + '</span><span class="cnt-arrow">➜</span><span class="cnt-total">/' + total + '</span>';
+      countEl.classList.remove('is-done');
+    }
+  };
+
+  const replay = cls => {
+    countEl.classList.remove(cls);
+    void countEl.offsetWidth; // force le redémarrage de l'animation
+    countEl.classList.add(cls);
+  };
+
+  const tap = () => {
+    const current = progressCounts[cardId] !== undefined ? progressCounts[cardId] : 0;
+    if (current >= total) {
+      // Déjà terminé : un appui de plus recommence à zéro.
+      progressCounts[cardId] = 0;
+      saveProgress();
+      render();
+      vibrateTap();
+      checkSessionCompletion(mode);
+      return;
+    }
+    progressCounts[cardId] = current + 1;
+    saveProgress();
+    render();
+    if (progressCounts[cardId] >= total) {
+      vibrateDone();
+      replay('just-completed');
+      checkSessionCompletion(mode);
+    } else {
+      vibrateTap();
+      replay('just-tapped');
+    }
+  };
+
+  render();
+  card._tapCounterFn = tap;
+}
+
+// Zone de tap unique : toute la carte, sauf le bouton 🔊 (dans son propre
+// pied de carte) qui gère son propre clic.
+function attachCardTapZone(card) {
+  card.addEventListener('click', e => {
+    if (e.target.closest('.card-footer-actions')) return; // laisse le bouton audio gérer son clic
+    if (typeof card._tapCounterFn === 'function') card._tapCounterFn();
+  });
+}
+
+function enhanceCards() {
+  ['matin', 'soir'].forEach(mode => {
+    const bloc = document.getElementById(mode === 'matin' ? 'blocMatin' : 'blocSoir');
+    if (!bloc) return;
+    const cards = bloc.querySelectorAll('.card');
+    cards.forEach((card, i) => {
+      const position = i + 1;
+      const cardId = mode + '-' + position;
+      const head = card.querySelector('.card-head');
+      const countEl = card.querySelector('.card-count');
+      const dhikrEl = card.querySelector('.card-dhikr');
+      if (!head || !countEl || !dhikrEl) return;
+
+      const totalMatch = /\d+/.exec(countEl.textContent);
+      setupCounter(card, cardId, totalMatch ? parseInt(totalMatch[0], 10) : 0);
+      attachCardTapZone(card);
+      card.classList.add('is-tappable');
+
+      const audioSrc = audioFileFor(mode, position);
+      card.dataset.audioSrc = audioSrc || '';
+      // L'invocation d'ouverture (carte 1) n'a pas d'enregistrement : pas de bouton.
+      if (!audioSrc) return;
+
+      // Le bouton d'écoute vit dans son propre pied de carte, bien séparé
+      // de la zone de comptage (qui couvre le reste de la carte).
+      const footer = document.createElement('div');
+      footer.className = 'card-footer-actions';
+      const btn = document.createElement('button');
+      btn.className = 'audio-btn';
+      btn.setAttribute('aria-label', 'Écouter cette invocation en arabe');
+      btn.innerHTML = '<span class="audio-icon"><span class="audio-bars"><i></i><i></i><i></i></span><span class="audio-icon-glyph">🔊</span></span><span class="audio-btn-label">Écouter</span>';
+      btn.onclick = e => { e.stopPropagation(); toggleSpeakCard(btn, dhikrEl.textContent.trim(), audioSrc); };
+      footer.appendChild(btn);
+      card.appendChild(footer);
+    });
+  });
+}
+enhanceCards();
+renderVibeChips();
+renderSpeedChips();
+renderFallbackToggle();
+
+// ── FAB — Écouter tout (lecture séquentielle du bloc actif) ─────────────────
+function toggleReadAll() {
+  if (isReadingAll) { stopReadAll(); return; }
+  if (activeBtn) stopAllSpeech();
+  const bloc = document.getElementById(currentMode === 'matin' ? 'blocMatin' : 'blocSoir');
+  readAllQueue = Array.from(bloc.querySelectorAll('.card')).map(card => ({
+    text: card.querySelector('.card-dhikr').textContent.trim(),
+    audioSrc: card.dataset.audioSrc
+  }));
+  readAllIndex = 0;
+  if (!readAllQueue.length) return;
+  isReadingAll = true;
+  setFabPlaying(true);
+  speakNextInQueue();
+}
+function speakNextInQueue() {
+  if (!isReadingAll || readAllIndex >= readAllQueue.length) { stopReadAll(); return; }
+  const item = readAllQueue[readAllIndex];
+  playAudioOrFallback(item.audioSrc, item.text, {
+    onend: () => { readAllIndex++; speakNextInQueue(); },
+    onerror: () => { readAllIndex++; speakNextInQueue(); }
+  });
+}
+function stopReadAll() {
+  isReadingAll = false;
+  readAllQueue = [];
+  readAllIndex = 0;
+  setFabPlaying(false);
+  if (!activeBtn) stopAudioOrSpeech();
+}
+function setFabPlaying(playing) {
+  const fab = document.getElementById('fabPlayAll');
+  const icon = document.getElementById('fabIcon');
+  const label = document.getElementById('fabLabel');
+  if (!fab) return;
+  fab.classList.toggle('is-playing', playing);
+  if (icon) icon.textContent = playing ? '⏹' : '🔊';
+  if (label) label.textContent = playing ? 'Arrêter' : 'Écouter tout';
+}
+
+// ── RIPPLE — état tactile Material 3 ────────────────────────────────────────
+document.addEventListener('click', e => {
+  const el = e.target.closest('.audio-btn,.theme-opt,.voice-opt,.sbtn,.nav-item,.fab');
+  if (!el) return;
+  const r = el.getBoundingClientRect();
+  const size = Math.max(r.width, r.height);
+  const span = document.createElement('span');
+  span.className = 'ripple';
+  span.style.width = span.style.height = size + 'px';
+  span.style.left = (e.clientX - r.left - size / 2) + 'px';
+  span.style.top = (e.clientY - r.top - size / 2) + 'px';
+  el.appendChild(span);
+  setTimeout(() => span.remove(), 500);
+});
+
+// ── MODALES (avec gestion du bouton retour Android) ────────────────────────
+let modalHistoryPushed = false;
+function openModal(id) {
+  document.querySelectorAll('.modal-overlay.open').forEach(m => {
+    if (m.id !== id) m.classList.remove('open');
+  });
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (modalHistoryPushed) {
+    history.replaceState({modal:id}, '', '#'+id);
+  } else {
+    history.pushState({modal:id}, '', '#'+id);
+    modalHistoryPushed = true;
+  }
+}
+function closeModal(id, fromPopstate) {
+  const el = document.getElementById(id);
+  if (el) el.classList.remove('open');
+  document.body.style.overflow = '';
+  if (!fromPopstate && modalHistoryPushed) {
+    modalHistoryPushed = false;
+    history.back();
+  }
+}
+function closeOnOverlay(e, id) {
+  if (e.target === document.getElementById(id)) closeModal(id);
+}
+window.addEventListener('popstate', () => {
+  modalHistoryPushed = false;
+  document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id, true));
+});
+
+// ── INSTALL ─────────────────────────────────────────────────────────────────
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault(); deferredPrompt = e;
+  document.getElementById('installBtn').style.display = 'flex';
+});
+window.addEventListener('appinstalled', () => {
+  document.getElementById('installBtn').style.display = 'none';
+  deferredPrompt = null;
+});
+function installApp() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(() => deferredPrompt = null);
+}
+
+// ── PARTAGE ─────────────────────────────────────────────────────────────────
+function shareApp() {
+  const msg = `أذكار الصباح والمساء — تطبيق مجاني يعمل بدون إنترنت\n\nCette application contient les adhkar du matin et du soir de Hisn al-Muslim, avec traduction française. Elle fonctionne hors ligne.\n\n${APP_URL}`;
+  if (navigator.share) {
+    navigator.share({title:'أذكار الصباح والمساء', text:msg, url:APP_URL})
+      .catch(() => copyLink());
+  } else copyLink();
+}
+function copyLink() {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(APP_URL)
+      .then(() => alert('✓ Lien copié !'));
+  } else prompt('Copier ce lien :', APP_URL);
+}
+function downloadGuide() {
+  const w = window.open('', '_blank');
+  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
+<title>Guide installation أذكار</title>
+<style>
+body{font-family:Georgia,serif;max-width:580px;margin:36px auto;padding:20px;color:#26190A}
+h1{color:#7C5A1E;text-align:center;font-size:1.5rem;margin-bottom:4px}
+.logo{text-align:center;font-size:2.5rem;margin-bottom:8px}
+.sub{text-align:center;font-style:italic;color:#6B5540;font-size:.9rem;margin-bottom:24px}
+.url{background:#FAF6EE;border:2px solid #A9792C;border-radius:8px;padding:12px;text-align:center;font-family:monospace;font-size:.9rem;color:#7C5A1E;margin:0 0 20px;word-break:break-all}
+.box{margin:16px 0;padding:16px;background:#FAF6EE;border-left:4px solid #A9792C;border-radius:4px}
+.box h3{color:#7C5A1E;margin-bottom:8px}
+ol{padding-left:18px;line-height:2.1}
+.note{text-align:center;font-style:italic;color:#6B5540;font-size:.82rem;margin-top:20px}
+.ok{color:#276244;font-weight:bold}
+@media print{body{margin:10px}}
+</style></head><body>
+<div class="logo">✦</div>
+<h1>أذكار الصباح والمساء</h1>
+<div class="sub">Guide d'installation sur votre téléphone</div>
+<div class="url">${APP_URL}</div>
+<div class="box"><h3>📱 Android — Chrome</h3><ol>
+<li>Ouvrez <strong>Chrome</strong> et allez sur le lien ci-dessus</li>
+<li>Appuyez sur le menu <strong>⋮</strong> (en haut à droite)</li>
+<li>Appuyez sur <strong>« Ajouter à l'écran d'accueil »</strong></li>
+<li>Confirmez avec <strong>« Ajouter »</strong></li>
+<li><span class="ok">✓</span> L'icône apparaît sur votre écran d'accueil !</li>
+</ol></div>
+<div class="box"><h3>🍎 iPhone / iPad — Safari</h3><ol>
+<li>Ouvrez <strong>Safari</strong> (pas Chrome) et allez sur le lien</li>
+<li>Appuyez sur le bouton <strong>Partager ↑</strong> (en bas de l'écran)</li>
+<li>Faites défiler et appuyez sur <strong>« Sur l'écran d'accueil »</strong></li>
+<li>Appuyez sur <strong>« Ajouter »</strong> en haut à droite</li>
+<li><span class="ok">✓</span> L'icône apparaît sur votre écran d'accueil !</li>
+</ol></div>
+<p class="note"><span class="ok">✓ Fonctionne hors ligne</span> — Une fois installée, pas besoin de connexion.</p>
+</body></html>`);
+  w.document.close();
+  setTimeout(() => w.print(), 600);
+}
+
+// ── SPLASH ──────────────────────────────────────────────────────────────────
+function hideSplash() {
+  const s = document.getElementById('splash');
+  if (!s) return;
+  s.style.opacity = '0';
+  s.style.transform = 'scale(1.03)';
+  setTimeout(() => s.remove(), 520);
+}
+if (document.readyState === 'complete') setTimeout(hideSplash, 800);
+else window.addEventListener('load', () => setTimeout(hideSplash, 800));
+</script>
+</body>
+</html>
