@@ -1609,6 +1609,17 @@ body{
 <script>
 const APP_URL = 'https://invocation-du-matin-et-du-soir.netlify.app/';
 
+// ── DÉTECTION CAPACITOR (APK natif) ────────────────────────────────────────
+const isNative = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+let CapacitorHaptics = null;
+let CapacitorShare = null;
+let CapacitorApp = null;
+if (isNative && window.Capacitor.Plugins) {
+  CapacitorHaptics = window.Capacitor.Plugins.Haptics || null;
+  CapacitorShare   = window.Capacitor.Plugins.Share   || null;
+  CapacitorApp     = window.Capacitor.Plugins.App     || null;
+  console.log('📱 Capacitor natif détecté', { Haptics: !!CapacitorHaptics, Share: !!CapacitorShare, App: !!CapacitorApp });
+}
 // ── SERVICE WORKER (fichier réel /sw.js) ───────────────────────────────────
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -1855,10 +1866,15 @@ function playAudioOrFallback(audioSrc, fallbackText, {onstart, onend, onerror} =
     }
   };
   a.src = audioSrc;
-  a.onplay = () => { if (onstart) onstart(); };
+  a.playbackRate = playbackSpeed;
+  a.onloadedmetadata = () => { a.playbackRate = playbackSpeed; };
+  a.onplay = () => {
+    a.playbackRate = playbackSpeed;
+    if (onstart) onstart();
+  };
   a.onended = () => { if (onend) onend(); };
   a.onerror = tryFallback;
-  a.play().then(() => {}).catch(tryFallback);
+  a.play().then(() => { a.playbackRate = playbackSpeed; }).catch(tryFallback);
 }
 function stopAudioOrSpeech() {
   clearInterval(keepAliveTimer);
@@ -1925,7 +1941,31 @@ function loadProgress() {
 function saveProgress() {
   try { localStorage.setItem('adhkar-progress-v2', JSON.stringify({ date: todayKey(), counts: progressCounts })); } catch (e) {}
 }
+// ── Vibration : utilise le plugin natif Haptics sur Android, fallback navigateur sinon
+async function vibrateNative(pattern) {
+  if (!CapacitorHaptics) return false;
+  try {
+    if (typeof pattern === 'number') {
+      const style = pattern >= 80 ? 'HEAVY' : pattern >= 50 ? 'MEDIUM' : 'LIGHT';
+      await CapacitorHaptics.impact({ style });
+    } else if (Array.isArray(pattern)) {
+      for (let i = 0; i < pattern.length; i++) {
+        const d = pattern[i];
+        if (d > 0) await CapacitorHaptics.vibrate({ duration: d });
+        if (i < pattern.length - 1) {
+          const pause = pattern[i + 1] && pattern[i + 1] < 50 ? 80 : 150;
+          await new Promise(r => setTimeout(r, pause));
+        }
+      }
+    }
+    return true;
+  } catch (e) {
+    console.warn('Haptics erreur :', e);
+    return false;
+  }
+}
 function vibrate(pattern) {
+  if (CapacitorHaptics) { vibrateNative(pattern); return; }
   try { if ('vibrate' in navigator) navigator.vibrate(pattern); } catch (e) {}
 }
 
@@ -2216,6 +2256,24 @@ window.addEventListener('popstate', () => {
   modalHistoryPushed = false;
   document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id, true));
 });
+// ── Bouton retour Android (natif) ──────────────────────────────────────────
+if (CapacitorApp) {
+  CapacitorApp.addListener('backButton', () => {
+    // 1. Un modal est ouvert ? → le fermer
+    const openModalEl = document.querySelector('.modal-overlay.open');
+    if (openModalEl) {
+      closeModal(openModalEl.id, true);
+      return;
+    }
+    // 2. On est sur "Soir" ? → revenir à "Matin"
+    if (currentMode === 'soir') {
+      setMode('matin');
+      return;
+    }
+    // 3. Sinon → quitter l'app
+    CapacitorApp.exitApp();
+  });
+}
 
 // ── INSTALL ─────────────────────────────────────────────────────────────────
 let deferredPrompt = null;
@@ -2234,12 +2292,28 @@ function installApp() {
 }
 
 // ── PARTAGE ─────────────────────────────────────────────────────────────────
-function shareApp() {
-  const msg = `أذكار الصباح والمساء — تطبيق مجاني يعمل بدون إنترنت\n\nCette application contient les adhkar du matin et du soir de Hisn al-Muslim, avec traduction française. Elle fonctionne hors ligne.\n\n${APP_URL}`;
+async function shareApp() {
+  const msg = `أذكار الصباح والمساء — تطبيق مجاني يعمل بدون إنترنت\n\nCette application contient les adhkar du matin et du soir de Hisn al-Muslim, avec traduction française. Elle fonctionne hors ligne.`;
+  if (CapacitorShare) {
+    try {
+      await CapacitorShare.share({
+        title: 'أذكار الصباح والمساء',
+        text: msg,
+        url: APP_URL,
+        dialogTitle: 'Partager l\'application'
+      });
+      return;
+    } catch (e) {
+      if (e && e.message && e.message.toLowerCase().includes('cancel')) return;
+      console.warn('Share natif indisponible, fallback', e);
+    }
+  }
   if (navigator.share) {
     navigator.share({title:'أذكار الصباح والمساء', text:msg, url:APP_URL})
       .catch(() => copyLink());
-  } else copyLink();
+    return;
+  }
+  copyLink();
 }
 function copyLink() {
   if (navigator.clipboard) {
