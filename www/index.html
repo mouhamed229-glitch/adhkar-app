@@ -672,6 +672,14 @@ body{
   <p class="hero-sub2">D'après « La Citadelle du Musulman » — Cheikh Sa'id al-Qahtani</p>
   <div class="hero-line"></div>
   <button id="installBtn" onclick="installApp()">⬇ Installer l'application</button>
+  <button id="bellBtn" onclick="openModal('modalNotif')" aria-label="Réglages des rappels quotidiens" style="
+    position:absolute;top:calc(14px + var(--safe-t));left:16px;
+    width:44px;height:44px;border-radius:50%;
+    background:var(--bg2);border:1.5px solid var(--gold3);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;cursor:pointer;touch-action:manipulation;
+    box-shadow:0 2px 6px var(--shadow);z-index:5;
+  ">🔔</button>
 </header>
 
 <!-- TABS -->
@@ -1510,7 +1518,7 @@ body{
           <span>📋</span><span>Copier le lien</span>
         </button>
         <button class="sbtn sbtn-secondary" onclick="downloadGuide()">
-          <span>📄</span><span>Guide d'installation (PDF)</span>
+          <span>📄</span><span>Envoyer le guide d'installation</span>
         </button>
       </div>
       <div class="install-steps">
@@ -1593,6 +1601,42 @@ body{
   </div>
 </div>
 
+<!-- MODAL NOTIFICATIONS — rappels quotidiens -->
+<div class="modal-overlay" id="modalNotif" onclick="closeOnOverlay(event,'modalNotif')">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">
+      Rappels quotidiens
+      <button class="modal-close" onclick="closeModal('modalNotif')" aria-label="Fermer">✕</button>
+      <small>Recevez une notification pour les adhkar du matin et du soir</small>
+    </div>
+    <div class="modal-body">
+      <div class="vibe-chips" id="notifToggleChips" style="margin-bottom:20px">
+        <div class="opt-chip" data-val="false" onclick="setNotifEnabled(false)">Désactivés</div>
+        <div class="opt-chip" data-val="true" onclick="setNotifEnabled(true)">Activés</div>
+      </div>
+      <div id="notifTimeWrap" style="display:none">
+        <div class="modal-section-title">🌅 Heure des adhkar du matin</div>
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:20px">
+          <input type="time" id="notifTimeMatin" value="06:30" onchange="saveNotifTimes()"
+            style="flex:1;padding:12px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg2);color:var(--ink);font-family:var(--ui-font);font-size:1rem" />
+        </div>
+        <div class="modal-section-title">🌙 Heure des adhkar du soir</div>
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:20px">
+          <input type="time" id="notifTimeSoir" value="18:30" onchange="saveNotifTimes()"
+            style="flex:1;padding:12px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg2);color:var(--ink);font-family:var(--ui-font);font-size:1rem" />
+        </div>
+        <div class="voice-test-btn" onclick="testNotification()" style="margin-top:6px">
+          🔔 Tester une notification
+        </div>
+      </div>
+      <div id="notifWarning" style="display:none;margin-top:16px;padding:12px 14px;background:var(--dawn2);border:1px solid var(--dawn);border-radius:var(--r-md);font-family:Georgia,serif;font-size:.82rem;color:var(--dawn);line-height:1.6">
+        ⚠️ Les notifications ont été refusées. Autorisez-les dans les paramètres de votre téléphone : Paramètres → Applications → Adhkar → Notifications.
+      </div>
+    </div>
+    <div style="height:20px"></div>
+  </div>
+</div>
 <!-- MODAL CÉLÉBRATION — tous les adhkar du bloc actif sont terminés -->
 <div class="modal-overlay" id="modalCelebration" onclick="closeOnOverlay(event,'modalCelebration')">
   <div class="modal modal-celebration">
@@ -2170,6 +2214,148 @@ renderVibeChips();
 renderSpeedChips();
 renderFallbackToggle();
 
+// ── NOTIFICATIONS QUOTIDIENNES (rappels adhkar) ────────────────────────────
+let CapacitorLocalNotifications = null;
+if (isNative && window.Capacitor.Plugins) {
+  CapacitorLocalNotifications = window.Capacitor.Plugins.LocalNotifications || null;
+}
+const NOTIF_IDS = { matin: 1001, soir: 1002 };
+let notifEnabled = localStorage.getItem('adhkar-notif-enabled') === 'true';
+let notifTimeMatin = localStorage.getItem('adhkar-notif-matin') || '06:30';
+let notifTimeSoir  = localStorage.getItem('adhkar-notif-soir')  || '18:30';
+function renderNotifUI() {
+  const toggle = document.getElementById('notifToggleChips');
+  if (toggle) {
+    toggle.querySelectorAll('.opt-chip').forEach(c => {
+      c.classList.toggle('selected', c.dataset.val === String(notifEnabled));
+    });
+  }
+  const wrap = document.getElementById('notifTimeWrap');
+  if (wrap) wrap.style.display = notifEnabled ? '' : 'none';
+  const tM = document.getElementById('notifTimeMatin');
+  const tS = document.getElementById('notifTimeSoir');
+  if (tM) tM.value = notifTimeMatin;
+  if (tS) tS.value = notifTimeSoir;
+}
+async function ensureNotifPermission() {
+  if (!CapacitorLocalNotifications) return false;
+  try {
+    let status = await CapacitorLocalNotifications.checkPermissions();
+    if (status.display !== 'granted') {
+      status = await CapacitorLocalNotifications.requestPermissions();
+    }
+    const granted = status.display === 'granted';
+    const warn = document.getElementById('notifWarning');
+    if (warn) warn.style.display = granted ? 'none' : '';
+    return granted;
+  } catch (e) {
+    console.warn('Notif permission erreur', e);
+    return false;
+  }
+}
+async function cancelAllNotifs() {
+  if (!CapacitorLocalNotifications) return;
+  try {
+    await CapacitorLocalNotifications.cancel({
+      notifications: [
+        { id: NOTIF_IDS.matin },
+        { id: NOTIF_IDS.soir }
+      ]
+    });
+  } catch (e) {}
+}
+async function scheduleNotif(id, hour, minute, title, body) {
+  const now = new Date();
+  const target = new Date();
+  target.setHours(hour, minute, 0, 0);
+  if (target <= now) target.setDate(target.getDate() + 1);
+  try {
+    await CapacitorLocalNotifications.schedule({
+      notifications: [{
+        id: id,
+        title: title,
+        body: body,
+        schedule: {
+          at: target,
+          repeats: true,
+          every: 'day',
+          allowWhileIdle: true
+        },
+        smallIcon: 'ic_launcher',
+        iconColor: '#9C7326'
+      }]
+    });
+    return true;
+  } catch (e) {
+    console.warn('Schedule erreur', e);
+    return false;
+  }
+}
+async function applyNotifSchedule() {
+  if (!CapacitorLocalNotifications) return;
+  await cancelAllNotifs();
+  if (!notifEnabled) return;
+  const granted = await ensureNotifPermission();
+  if (!granted) return;
+  const [hM, mM] = notifTimeMatin.split(':').map(Number);
+  const [hS, mS] = notifTimeSoir.split(':').map(Number);
+  await scheduleNotif(NOTIF_IDS.matin, hM, mM,
+    '🌅 Adhkar du matin',
+    'Il est temps de réciter vos adhkar du matin. Qu\'Allah bénisse votre journée.');
+  await scheduleNotif(NOTIF_IDS.soir, hS, mS,
+    '🌙 Adhkar du soir',
+    'Il est temps de réciter vos adhkar du soir. Qu\'Allah apaise votre nuit.');
+}
+async function setNotifEnabled(v) {
+  notifEnabled = v;
+  localStorage.setItem('adhkar-notif-enabled', String(v));
+  renderNotifUI();
+  if (v) {
+    const granted = await ensureNotifPermission();
+    if (!granted) {
+      notifEnabled = false;
+      localStorage.setItem('adhkar-notif-enabled', 'false');
+      renderNotifUI();
+      return;
+    }
+  }
+  await applyNotifSchedule();
+}
+async function saveNotifTimes() {
+  notifTimeMatin = document.getElementById('notifTimeMatin').value || '06:30';
+  notifTimeSoir  = document.getElementById('notifTimeSoir').value  || '18:30';
+  localStorage.setItem('adhkar-notif-matin', notifTimeMatin);
+  localStorage.setItem('adhkar-notif-soir', notifTimeSoir);
+  if (notifEnabled) await applyNotifSchedule();
+}
+async function testNotification() {
+  if (!CapacitorLocalNotifications) {
+    alert('Les notifications ne sont pas disponibles sur cette plateforme.');
+    return;
+  }
+  const granted = await ensureNotifPermission();
+  if (!granted) return;
+  try {
+    await CapacitorLocalNotifications.schedule({
+      notifications: [{
+        id: 9999,
+        title: '🔔 Test — Adhkar',
+        body: 'Si vous voyez ceci, les rappels fonctionnent !',
+        schedule: { at: new Date(Date.now() + 5000) }
+      }]
+    });
+    alert('Notification programmée dans 5 secondes. Verrouillez l\'écran pour la tester.');
+  } catch (e) {
+    alert('Erreur lors du test : ' + e.message);
+  }
+}
+// Initialisation : si des rappels étaient activés, on les reprogramme au lancement
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    renderNotifUI();
+    if (notifEnabled && CapacitorLocalNotifications) applyNotifSchedule();
+  }, 1000);
+});
 // ── FAB — Écouter tout (lecture séquentielle du bloc actif) ─────────────────
 function toggleReadAll() {
   if (isReadingAll) { stopReadAll(); return; }
@@ -2321,45 +2507,41 @@ function copyLink() {
       .then(() => alert('✓ Lien copié !'));
   } else prompt('Copier ce lien :', APP_URL);
 }
-function downloadGuide() {
-  const w = window.open('', '_blank');
-  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
-<title>Guide installation أذكار</title>
-<style>
-body{font-family:Georgia,serif;max-width:580px;margin:36px auto;padding:20px;color:#26190A}
-h1{color:#7C5A1E;text-align:center;font-size:1.5rem;margin-bottom:4px}
-.logo{text-align:center;font-size:2.5rem;margin-bottom:8px}
-.sub{text-align:center;font-style:italic;color:#6B5540;font-size:.9rem;margin-bottom:24px}
-.url{background:#FAF6EE;border:2px solid #A9792C;border-radius:8px;padding:12px;text-align:center;font-family:monospace;font-size:.9rem;color:#7C5A1E;margin:0 0 20px;word-break:break-all}
-.box{margin:16px 0;padding:16px;background:#FAF6EE;border-left:4px solid #A9792C;border-radius:4px}
-.box h3{color:#7C5A1E;margin-bottom:8px}
-ol{padding-left:18px;line-height:2.1}
-.note{text-align:center;font-style:italic;color:#6B5540;font-size:.82rem;margin-top:20px}
-.ok{color:#276244;font-weight:bold}
-@media print{body{margin:10px}}
-</style></head><body>
-<div class="logo">✦</div>
-<h1>أذكار الصباح والمساء</h1>
-<div class="sub">Guide d'installation sur votre téléphone</div>
-<div class="url">${APP_URL}</div>
-<div class="box"><h3>📱 Android — Chrome</h3><ol>
-<li>Ouvrez <strong>Chrome</strong> et allez sur le lien ci-dessus</li>
-<li>Appuyez sur le menu <strong>⋮</strong> (en haut à droite)</li>
-<li>Appuyez sur <strong>« Ajouter à l'écran d'accueil »</strong></li>
-<li>Confirmez avec <strong>« Ajouter »</strong></li>
-<li><span class="ok">✓</span> L'icône apparaît sur votre écran d'accueil !</li>
-</ol></div>
-<div class="box"><h3>🍎 iPhone / iPad — Safari</h3><ol>
-<li>Ouvrez <strong>Safari</strong> (pas Chrome) et allez sur le lien</li>
-<li>Appuyez sur le bouton <strong>Partager ↑</strong> (en bas de l'écran)</li>
-<li>Faites défiler et appuyez sur <strong>« Sur l'écran d'accueil »</strong></li>
-<li>Appuyez sur <strong>« Ajouter »</strong> en haut à droite</li>
-<li><span class="ok">✓</span> L'icône apparaît sur votre écran d'accueil !</li>
-</ol></div>
-<p class="note"><span class="ok">✓ Fonctionne hors ligne</span> — Une fois installée, pas besoin de connexion.</p>
-</body></html>`);
-  w.document.close();
-  setTimeout(() => w.print(), 600);
+async function downloadGuide() {
+  const guideText = `📖 Guide d'installation — أذكار الصباح والمساء
+📱 ANDROID (Chrome) :
+1. Ouvrez Chrome et allez sur : ${APP_URL}
+2. Menu ⋮ → "Ajouter à l'écran d'accueil"
+3. Confirmez avec "Ajouter"
+✓ L'icône apparaît sur votre écran d'accueil !
+🍎 iPHONE / iPAD (Safari) :
+1. Ouvrez Safari (pas Chrome) et allez sur : ${APP_URL}
+2. Bouton Partager ↑ → "Sur l'écran d'accueil"
+3. "Ajouter" en haut à droite
+✓ L'icône apparaît sur votre écran d'accueil !
+✓ Une fois installée, l'app fonctionne hors ligne.`;
+  if (CapacitorShare) {
+    try {
+      await CapacitorShare.share({
+        title: "Guide d'installation — Adhkar",
+        text: guideText,
+        dialogTitle: "Partager le guide d'installation"
+      });
+      return;
+    } catch (e) {
+      if (e && e.message && e.message.toLowerCase().includes('cancel')) return;
+      console.warn('Share guide, fallback', e);
+    }
+  }
+  if (navigator.share) {
+    try { await navigator.share({ title: "Guide d'installation — Adhkar", text: guideText }); return; } catch (e) {}
+  }
+  try {
+    await navigator.clipboard.writeText(guideText);
+    alert("✓ Guide copié dans le presse-papier !");
+  } catch (e) {
+    alert(guideText);
+  }
 }
 
 // ── SPLASH ──────────────────────────────────────────────────────────────────
