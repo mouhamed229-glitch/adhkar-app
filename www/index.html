@@ -1633,6 +1633,12 @@ body{
       <div id="notifWarning" style="display:none;margin-top:16px;padding:12px 14px;background:var(--dawn2);border:1px solid var(--dawn);border-radius:var(--r-md);font-family:Georgia,serif;font-size:.82rem;color:var(--dawn);line-height:1.6">
         ⚠️ Les notifications ont été refusées. Autorisez-les dans les paramètres de votre téléphone : Paramètres → Applications → Adhkar → Notifications.
       </div>
+      <div id="exactAlarmBanner" style="display:none;margin-top:16px;padding:14px 16px;background:var(--dawn2);border:1px solid var(--dawn);border-radius:var(--r-md);font-family:Georgia,serif;font-size:.82rem;color:var(--dawn);line-height:1.6">
+        ⏰ <strong>Important pour Samsung / Xiaomi / Huawei :</strong> les rappels peuvent arriver avec 2 à 15 minutes de retard si l'option "Alarmes et rappels" n'est pas activée pour cette application.<br><br>
+        <button class="voice-test-btn" onclick="openExactAlarmSettings()" style="margin-top:8px">
+          ⚙️ Activer les alarmes exactes
+        </button>
+      </div>
     </div>
     <div style="height:20px"></div>
   </div>
@@ -2237,6 +2243,33 @@ function renderNotifUI() {
   if (tM) tM.value = notifTimeMatin;
   if (tS) tS.value = notifTimeSoir;
 }
+async function checkExactAlarmSetting() {
+  if (!CapacitorLocalNotifications || !CapacitorLocalNotifications.checkExactNotificationSetting) return null;
+  try {
+    const r = await CapacitorLocalNotifications.checkExactNotificationSetting();
+    return r.exact_alarm || null;
+  } catch (e) {
+    return null;
+  }
+}
+async function openExactAlarmSettings() {
+  if (!CapacitorLocalNotifications || !CapacitorLocalNotifications.changeExactNotificationSetting) {
+    alert('Impossible d\'ouvrir les paramètres sur cette version d\'Android.');
+    return;
+  }
+  try {
+    await CapacitorLocalNotifications.changeExactNotificationSetting();
+  } catch (e) {
+    alert('Impossible d\'ouvrir les paramètres. Va manuellement dans : Paramètres → Applications → Adhkar → Alarmes et rappels.');
+  }
+}
+async function updateExactAlarmBanner() {
+  const banner = document.getElementById('exactAlarmBanner');
+  if (!banner) return;
+  if (!notifEnabled) { banner.style.display = 'none'; return; }
+  const setting = await checkExactAlarmSetting();
+  banner.style.display = (setting === 'denied') ? '' : 'none';
+}
 async function ensureNotifPermission() {
   if (!CapacitorLocalNotifications) return false;
   try {
@@ -2353,9 +2386,20 @@ async function testNotification() {
 window.addEventListener('load', () => {
   setTimeout(() => {
     renderNotifUI();
-    if (notifEnabled && CapacitorLocalNotifications) applyNotifSchedule();
+    if (notifEnabled && CapacitorLocalNotifications) {
+      applyNotifSchedule();
+      updateExactAlarmBanner();
+    }
   }, 1000);
 });
+// Vérifier les alarmes exactes à chaque ouverture du modal
+const _origOpenModal = window.openModal;
+window.openModal = function(id) {
+  _origOpenModal(id);
+  if (id === 'modalNotif') {
+    setTimeout(updateExactAlarmBanner, 200);
+  }
+};
 // ── FAB — Écouter tout (lecture séquentielle du bloc actif) ─────────────────
 function toggleReadAll() {
   if (isReadingAll) { stopReadAll(); return; }
