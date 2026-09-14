@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Adhkar</string>
-    <string name="title_activity_main">Adhkar</string>
+    <string name="app_name">أذكار</string>
+    <string name="title_activity_main">أذكار</string>
     <string name="package_name">com.mouhamedbouraima.adhkar</string>
     <string name="custom_url_scheme">com.mouhamedbouraima.adhkar</string>
 </resources>
