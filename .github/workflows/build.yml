@@ -1,4 +1,4 @@
-﻿name: Build Adhkar APK
+name: Build Adhkar APK
 on:
   push:
     tags:
@@ -19,11 +19,18 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+      - name: Decode keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/adhkar-release.jks
       - name: Install dependencies
         run: npm install
       - name: Sync Capacitor
         run: npx cap sync android
       - name: Build APK
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
           cd android
           chmod +x gradlew

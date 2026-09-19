@@ -2398,27 +2398,35 @@ function dismissBatteryBanner() {
   const banner = document.getElementById('batteryBanner');
   if (banner) banner.style.display = 'none';
 }
-function openBatterySettings() {
-  // Tentative d'ouverture directe des paramètres d'optimisation de batterie
+async function openBatterySettings() {
+  // Récupérer le plugin AppLauncher (installé via @capacitor/app-launcher)
+  const AppLauncher = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.AppLauncher;
+  if (!AppLauncher) {
+    alert("Impossible d'ouvrir automatiquement les paramètres.\n\nAllez manuellement dans :\nParamètres → Applications → Adhkar → Batterie → Non restreint");
+    dismissBatteryBanner();
+    return;
+  }
+  // Tenter plusieurs intents dans l'ordre
   const intents = [
-    'intent:#Intent;action=android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS;end',
-    'intent:#Intent;action=android.settings.APPLICATION_DETAILS_SETTINGS;end',
-    'intent:#Intent;action=android.settings.SETTINGS;end'
+    'android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS',
+    'android.settings.APPLICATION_DETAILS_SETTINGS:package:com.mouhamedbouraima.adhkar',
+    'android.settings.SETTINGS'
   ];
   let opened = false;
-  for (const url of intents) {
+  for (const intent of intents) {
     try {
-      window.open(url, '_system');
+      const url = 'intent:#Intent;action=' + intent + ';end';
+      await AppLauncher.openUrl({ url });
       opened = true;
       break;
     } catch (e) {
-      console.warn('Intent échec :', url, e);
+      console.warn('Intent échec :', intent, e);
     }
   }
   if (!opened) {
     alert("Impossible d'ouvrir automatiquement les paramètres.\n\nAllez manuellement dans :\nParamètres → Applications → Adhkar → Batterie → Non restreint");
   }
-  // On marque le bandeau comme "vu" après ouverture pour ne pas le montrer à chaque fois
+  // On marque le bandeau comme "vu" après ouverture
   dismissBatteryBanner();
 }
 async function updateExactAlarmBanner() {
