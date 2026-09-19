@@ -641,6 +641,51 @@ body{
 }
 .footer-signature-link:active{opacity:.6;background:var(--m3-primary-container)}
 
+/* ── CORRECTION DIRECTION RTL/LTR ── */
+/* Le body est en RTL pour l'arabe, mais les blocs français doivent être LTR */
+.aide-h,
+.aide-p,
+.about-dev,
+.about-dev-title,
+.about-dev-name,
+.modal-section-title,
+.modal-body p,
+.modal-body small,
+.theme-opt-name,
+.theme-opt-desc,
+.voice-opt-name,
+.voice-opt-desc,
+.voice-single,
+.voice-empty,
+.vibe-group-label,
+.opt-chip,
+.install-steps,
+.install-steps h4,
+.install-step,
+.sbtn,
+.sbtn span,
+.celebration-title,
+.celebration-message,
+.celebration-actions,
+.voice-test-btn,
+.share-url-box {
+  direction: ltr;
+  text-align: left;
+}
+/* Les titres centrés gardent leur centrage */
+.about-dev,
+.about-dev-title,
+.install-steps h4,
+.celebration-title,
+.share-url-box,
+.voice-test-btn {
+  text-align: center;
+}
+/* Sauf ceux qui doivent rester centrés ou RTL */
+.voice-test-btn,
+.opt-chip {
+  text-align: center;
+}
 /* ── RESPONSIVE ── */
 @media(max-width:420px){
   .card{padding:17px 13px}
@@ -1658,8 +1703,28 @@ body{
           🔔 Tester une notification
         </div>
       </div>
-      <div id="notifWarning" style="display:none;margin-top:16px;padding:12px 14px;background:var(--dawn2);border:1px solid var(--dawn);border-radius:var(--r-md);font-family:Georgia,serif;font-size:.82rem;color:var(--dawn);line-height:1.6">
+      <div id="notifWarning" style="display:none;margin-top:16px;padding:12px 14px;background:var(--dawn2);border:1px solid var(--dawn);border-radius:var(--r-md);font-family:Georgia,serif;font-size:.82rem;color:var(--dawn);line-height:1.6;direction:ltr;text-align:left">
         ⚠️ Les notifications ont été refusées. Autorisez-les dans les paramètres de votre téléphone : Paramètres → Applications → Adhkar → Notifications.
+      </div>
+      <div id="batteryBanner" style="display:none;margin-top:16px;padding:16px;background:var(--green2);border:1px solid var(--green3);border-radius:var(--r-md)">
+        <div style="font-family:var(--ui-font);font-weight:700;font-size:.9rem;color:var(--green);margin-bottom:10px;direction:ltr;text-align:left">
+          🔋 Pour recevoir vos rappels à l'heure exacte
+        </div>
+        <div style="font-family:Georgia,serif;font-size:.8rem;color:var(--ink2);line-height:1.7;margin-bottom:14px;direction:ltr;text-align:left">
+          Sur <strong>Samsung, Xiaomi, Huawei, Oppo, Vivo</strong> et d'autres marques, Android peut <strong>retarder les notifications</strong> pour économiser la batterie.<br><br>
+          <strong>Que faire :</strong><br>
+          1. Appuyez sur <strong>"Ouvrir les paramètres"</strong> ci-dessous<br>
+          2. Cherchez <strong>Adhkar</strong> (ou أذكار) dans la liste<br>
+          3. Choisissez <strong>"Non restreint"</strong> (ou "Ne pas optimiser")
+        </div>
+        <div style="display:flex;gap:8px;direction:ltr">
+          <button class="voice-test-btn" style="flex:1;margin-top:0" onclick="openBatterySettings()">
+            ⚙️ Ouvrir les paramètres
+          </button>
+          <button class="sbtn sbtn-secondary" style="flex:0 0 auto;padding:12px 16px;margin:0" onclick="dismissBatteryBanner()">
+            ✕
+          </button>
+        </div>
       </div>
       <div id="exactAlarmBanner" style="display:none;margin-top:16px;padding:14px 16px;background:var(--dawn2);border:1px solid var(--dawn);border-radius:var(--r-md);font-family:Georgia,serif;font-size:.82rem;color:var(--dawn);line-height:1.6">
         ⏰ <strong>Important pour Samsung / Xiaomi / Huawei :</strong> les rappels peuvent arriver avec 2 à 15 minutes de retard si l'option "Alarmes et rappels" n'est pas activée pour cette application.<br><br>
@@ -2321,6 +2386,41 @@ async function openExactAlarmSettings() {
     alert('Impossible d\'ouvrir les paramètres. Va manuellement dans : Paramètres → Applications → Adhkar → Alarmes et rappels.');
   }
 }
+// ── Bandeau optimisation batterie (Samsung/Xiaomi/Huawei) ──────────────────
+function showBatteryBanner() {
+  const banner = document.getElementById('batteryBanner');
+  if (!banner) return;
+  const dismissed = localStorage.getItem('adhkar-battery-dismissed') === 'true';
+  banner.style.display = dismissed ? 'none' : '';
+}
+function dismissBatteryBanner() {
+  localStorage.setItem('adhkar-battery-dismissed', 'true');
+  const banner = document.getElementById('batteryBanner');
+  if (banner) banner.style.display = 'none';
+}
+function openBatterySettings() {
+  // Tentative d'ouverture directe des paramètres d'optimisation de batterie
+  const intents = [
+    'intent:#Intent;action=android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS;end',
+    'intent:#Intent;action=android.settings.APPLICATION_DETAILS_SETTINGS;end',
+    'intent:#Intent;action=android.settings.SETTINGS;end'
+  ];
+  let opened = false;
+  for (const url of intents) {
+    try {
+      window.open(url, '_system');
+      opened = true;
+      break;
+    } catch (e) {
+      console.warn('Intent échec :', url, e);
+    }
+  }
+  if (!opened) {
+    alert("Impossible d'ouvrir automatiquement les paramètres.\n\nAllez manuellement dans :\nParamètres → Applications → Adhkar → Batterie → Non restreint");
+  }
+  // On marque le bandeau comme "vu" après ouverture pour ne pas le montrer à chaque fois
+  dismissBatteryBanner();
+}
 async function updateExactAlarmBanner() {
   const banner = document.getElementById('exactAlarmBanner');
   if (!banner) return;
@@ -2470,6 +2570,7 @@ window.openModal = function(id) {
   _origOpenModal(id);
   if (id === 'modalNotif') {
     setTimeout(updateExactAlarmBanner, 200);
+    setTimeout(showBatteryBanner, 250);
   }
   if (id === 'modalShare') {
     // Adapter la boîte URL au contexte (native Android = lien APK, sinon site web)
@@ -2669,17 +2770,29 @@ function sendFeedbackWhatsApp() {
 }
 async function downloadGuide() {
   const guideText = `📖 Guide d'installation — أذكار الصباح والمساء
-📱 ANDROID (Chrome) :
-1. Ouvrez Chrome et allez sur : ${APP_URL}
-2. Menu ⋮ → "Ajouter à l'écran d'accueil"
-3. Confirmez avec "Ajouter"
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+📱 ANDROID (téléphone Samsung, Xiaomi, Tecno, etc.)
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Ouvrez ce lien dans votre navigateur :
+   ${APK_URL}
+2. Téléchargez le fichier app-debug.apk
+3. Ouvrez le fichier téléchargé (.apk)
+4. Android demandera d'autoriser les "sources inconnues"
+   → Autorisez
+5. Appuyez sur "Installer"
 ✓ L'icône apparaît sur votre écran d'accueil !
-🍎 iPHONE / iPAD (Safari) :
-1. Ouvrez Safari (pas Chrome) et allez sur : ${APP_URL}
-2. Bouton Partager ↑ → "Sur l'écran d'accueil"
-3. "Ajouter" en haut à droite
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+🍎 iPHONE / iPAD
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Ouvrez Safari (pas Chrome)
+2. Allez sur : ${APP_URL}
+3. Appuyez sur le bouton Partager ↑
+4. Choisissez "Sur l'écran d'accueil"
+5. Appuyez sur "Ajouter" en haut à droite
 ✓ L'icône apparaît sur votre écran d'accueil !
-✓ Une fois installée, l'app fonctionne hors ligne.`;
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ Une fois installée, l'application fonctionne
+   entièrement hors connexion.`;
   if (CapacitorShare) {
     try {
       await CapacitorShare.share({
@@ -2690,7 +2803,7 @@ async function downloadGuide() {
       return;
     } catch (e) {
       if (e && e.message && e.message.toLowerCase().includes('cancel')) return;
-      console.warn('Share guide, fallback', e);
+      console.warn('Share guide erreur', e);
     }
   }
   if (navigator.share) {
