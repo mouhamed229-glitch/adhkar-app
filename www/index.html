@@ -1521,7 +1521,23 @@ body{
           <span>📄</span><span>Envoyer le guide d'installation</span>
         </button>
       </div>
-      <div class="install-steps">
+      <div style="margin-top:20px;padding:16px;background:var(--bg3);border-radius:var(--r-md);border:1px solid var(--border)">
+        <div style="font-family:var(--ui-font);font-weight:700;font-size:.9rem;color:var(--ink);margin-bottom:12px;text-align:center">
+          ⭐ Votre avis nous intéresse !
+        </div>
+        <div style="font-family:Georgia,serif;font-size:.78rem;color:var(--ink2);line-height:1.6;margin-bottom:14px;text-align:center">
+          Une remarque, un bug, une suggestion ou juste un remerciement ? Écrivez-nous directement.
+        </div>
+        <div class="share-btns" style="margin-bottom:0">
+          <button class="sbtn sbtn-secondary" onclick="sendFeedbackEmail()">
+            <span>📧</span><span>Envoyer un avis par email</span>
+          </button>
+          <button class="sbtn sbtn-secondary" onclick="sendFeedbackWhatsApp()">
+            <span>💬</span><span>Envoyer un avis par WhatsApp</span>
+          </button>
+        </div>
+      </div>
+      <div class="install-steps" style="margin-top:16px">
         <h4>Comment installer l'application :</h4>
         <div class="install-step">
           <span class="step-icon">📱</span>
@@ -1563,28 +1579,40 @@ body{
       </div>
 
       <div class="aide-block">
-        <div class="aide-h"><span class="aide-num">3</span>Le nombre "× 3"</div>
-        <div class="aide-p">Le badge (par exemple <strong>1 ➜ /3</strong>) indique <strong>où vous en êtes</strong> sur le nombre de répétitions. <strong>Appuyez n'importe où sur la carte</strong> après chaque répétition — pas besoin de viser précisément. Le téléphone vibre légèrement à chaque appui, et quand l'invocation est terminée, une <strong>vibration longue puis un double bip</strong> marquent la fin, avant que le badge devienne <strong>✓</strong>. Un appui de plus le remet à zéro. Et quand <strong>tout</strong> le bloc (matin ou soir) est terminé, un message de clôture apparaît.</div>
+        <div class="aide-h"><span class="aide-num">3</span>Compter les répétitions</div>
+        <div class="aide-p">Le badge (ex : <strong>1 ➜ /3</strong>) indique <strong>où vous en êtes</strong>. <strong>Appuyez n'importe où sur la carte</strong> après chaque répétition. Une vibration légère marque chaque appui. Quand l'invocation est terminée, une <strong>vibration longue + double bip</strong> annonce la fin, et le badge devient <strong>✓</strong>.</div>
       </div>
 
       <div class="aide-block">
-        <div class="aide-h"><span class="aide-num">4</span>Écouter une invocation 🔊</div>
-        <div class="aide-p">En bas de chaque carte, le bouton <strong>🔊 Écouter</strong> joue la <strong>récitation enregistrée</strong> de cette invocation. Appuyez à nouveau dessus pour arrêter. Il est séparé du reste de la carte, donc pas de risque de le déclencher par erreur en comptant.</div>
+        <div class="aide-h"><span class="aide-num">4</span>Appui accidentel ?</div>
+        <div class="aide-p">Après avoir terminé une invocation, si vous appuyez par erreur, le compteur <strong>ne se remet pas à zéro immédiatement</strong> : un délai de <strong>6 secondes</strong> protège contre les resets accidentels. Après ce délai, un nouvel appui recommence le comptage.</div>
       </div>
 
       <div class="aide-block">
-        <div class="aide-h"><span class="aide-num">5</span>Tout écouter d'un coup</div>
-        <div class="aide-p">Le bouton rond <strong>🔊 Écouter tout</strong> en bas à droite lit, l'une après l'autre, toutes les invocations du moment choisi (Matin ou Soir). Pratique les mains libres.</div>
+        <div class="aide-h"><span class="aide-num">5</span>Écouter une invocation 🔊</div>
+        <div class="aide-p">En bas de chaque carte, le bouton <strong>🔊 Écouter</strong> joue la récitation enregistrée <strong>le nombre de fois exact prévu</strong> pour cette invocation (ex : 3 fois automatiquement pour une invocation × 3). Appuyez à nouveau pour arrêter.</div>
       </div>
 
       <div class="aide-block">
-        <div class="aide-h"><span class="aide-num">6</span>Changer l'apparence ou la voix</div>
-        <div class="aide-p">Appuyez sur <strong>⚙️ Réglages</strong> en bas pour choisir un fond clair, sombre ou automatique, régler la <strong>force des vibrations</strong>, la <strong>vitesse de lecture</strong> (× 0.75 à × 2), et la voix de secours si besoin.</div>
+        <div class="aide-h"><span class="aide-num">6</span>Tout écouter d'un coup</div>
+        <div class="aide-p">Le bouton <strong>🔊 Écouter tout</strong> lit toutes les invocations l'une après l'autre, <strong>en respectant les répétitions de chacune</strong>, jusqu'à la fin. Idéal les mains libres.</div>
       </div>
 
       <div class="aide-block">
-        <div class="aide-h"><span class="aide-num">7</span>Installer l'application</div>
-        <div class="aide-p">Appuyez sur <strong>📤 Partager</strong>, puis sur <strong>📄 Guide d'installation</strong> : un document s'ouvre avec les étapes pour ajouter l'icône sur votre écran d'accueil.</div>
+        <div class="aide-h"><span class="aide-num">7</span>Rappels quotidiens 🔔</div>
+        <div class="aide-p">Appuyez sur la <strong>cloche 🔔</strong> en haut à gauche pour activer les <strong>rappels quotidiens</strong>. Vous pouvez choisir l'heure du matin et l'heure du soir. Une notification apparaîtra à chaque heure choisie — et <strong>un appui dessus ouvrira directement le bon mode</strong> (matin ou soir).</div>
+      </div>
+      <div class="aide-block">
+        <div class="aide-h"><span class="aide-num">8</span>Réglages ⚙️</div>
+        <div class="aide-p">Appuyez sur <strong>⚙️ Réglages</strong> pour personnaliser : <strong>thème</strong> (clair / sombre / auto), <strong>force des vibrations</strong>, <strong>vitesse de lecture audio</strong> (× 0.75 à × 2) — votre choix reste mémorisé même après avoir fermé l'app.</div>
+      </div>
+      <div class="aide-block">
+        <div class="aide-h"><span class="aide-num">9</span>Partager 📤</div>
+        <div class="aide-p">Appuyez sur <strong>📤 Partager</strong> pour envoyer l'application à vos proches : la fonction utilise le <strong>menu de partage Android</strong> (WhatsApp, Gmail, Telegram…). Vous pouvez aussi <strong>envoyer le guide d'installation</strong> ou <strong>laisser un avis</strong>.</div>
+      </div>
+      <div class="aide-block">
+        <div class="aide-h"><span class="aide-num">10</span>Fonctionne hors connexion</div>
+        <div class="aide-p">Une fois installée, l'application fonctionne <strong>sans internet</strong> : les textes, les traductions et tous les audios sont <strong>embarqués dans l'application</strong>.</div>
       </div>
 
       <div class="about-dev">
@@ -1901,29 +1929,44 @@ function speakRaw(text, {onstart, onend, onerror} = {}) {
 }
 
 // Lecture d'une invocation : fichier pré-enregistré en priorité, voix de secours sinon.
-function playAudioOrFallback(audioSrc, fallbackText, {onstart, onend, onerror} = {}) {
+function playAudioOrFallback(audioSrc, fallbackText, {onstart, onend, onerror, repeatCount} = {}) {
+  const total = repeatCount || 1;
+  let played = 0;
+  let usedFallback = false;
   const a = getAudioEl();
   a.onplay = null; a.onended = null; a.onerror = null;
   a.pause();
   try { a.currentTime = 0; } catch (e) {}
-  let usedFallback = false;
+  // Fallback : voix de secours jouée N fois de suite
+  const doFallbackRepeat = () => {
+    let fbPlayed = 0;
+    const nextFb = () => {
+      fbPlayed++;
+      if (fbPlayed < total) {
+        speakRaw(fallbackText, { onend: nextFb });
+      } else if (onend) { onend(); }
+    };
+    speakRaw(fallbackText, { onstart, onend: nextFb, onerror });
+  };
   const tryFallback = () => {
     if (usedFallback) return;
     usedFallback = true;
-    if (fallbackEnabled) {
-      speakRaw(fallbackText, { onstart, onend, onerror });
-    } else if (onerror) {
-      onerror();
+    if (fallbackEnabled) { doFallbackRepeat(); }
+    else if (onerror) { onerror(); }
+  };
+  const onAudioEnded = () => {
+    played++;
+    if (played < total) {
+      try { a.currentTime = 0; a.play(); } catch (e) { tryFallback(); }
+    } else if (onend) {
+      onend();
     }
   };
   a.src = audioSrc;
   a.playbackRate = playbackSpeed;
   a.onloadedmetadata = () => { a.playbackRate = playbackSpeed; };
-  a.onplay = () => {
-    a.playbackRate = playbackSpeed;
-    if (onstart) onstart();
-  };
-  a.onended = () => { if (onend) onend(); };
+  a.onplay = () => { a.playbackRate = playbackSpeed; if (onstart) onstart(); };
+  a.onended = onAudioEnded;
   a.onerror = tryFallback;
   a.play().then(() => { a.playbackRate = playbackSpeed; }).catch(tryFallback);
 }
@@ -1949,7 +1992,7 @@ function stopAllSpeech() {
   activeBtn = null;
   stopReadAll();
 }
-function toggleSpeakCard(btn, text, audioSrc) {
+function toggleSpeakCard(btn, text, audioSrc, repeatCount) {
   stopReadAll();
   if (activeBtn === btn) {
     stopAllSpeech();
@@ -1967,7 +2010,8 @@ function toggleSpeakCard(btn, text, audioSrc) {
       alert(fallbackEnabled
         ? 'Impossible de lire cette invocation : ni le fichier audio, ni la voix du téléphone ne sont disponibles.'
         : 'Le fichier audio de cette invocation est introuvable.\n\nVous pouvez activer la voix de secours dans ⚙️ Réglages, ou ajouter le fichier audio correspondant.');
-    }
+    },
+    repeatCount: repeatCount || 1
   });
 }
 
@@ -2115,6 +2159,7 @@ function celebrateSessionComplete(mode) {
 }
 
 let progressCounts = loadProgress();
+const lastCompletedAt = {}; // Empêche un reset accidentel pendant 6 secondes après la fin
 
 function setupCounter(card, cardId, total) {
   const countEl = card.querySelector('.card-count');
@@ -2143,10 +2188,17 @@ function setupCounter(card, cardId, total) {
   };
 
   const tap = () => {
+    const now = Date.now();
     const current = progressCounts[cardId] !== undefined ? progressCounts[cardId] : 0;
     if (current >= total) {
-      // Déjà terminé : un appui de plus recommence à zéro.
+      // Protection anti-reset accidentel : on ignore les taps pendant 6 secondes
+      // après la fin, pour ne pas relancer le comptage par erreur.
+      if (lastCompletedAt[cardId] && (now - lastCompletedAt[cardId]) < 6000) {
+        return;
+      }
+      // Après 6 secondes : un appui de plus recommence à zéro.
       progressCounts[cardId] = 0;
+      delete lastCompletedAt[cardId];
       saveProgress();
       render();
       vibrateTap();
@@ -2157,6 +2209,7 @@ function setupCounter(card, cardId, total) {
     saveProgress();
     render();
     if (progressCounts[cardId] >= total) {
+      lastCompletedAt[cardId] = now;
       vibrateDone();
       replay('just-completed');
       checkSessionCompletion(mode);
@@ -2210,7 +2263,11 @@ function enhanceCards() {
       btn.className = 'audio-btn';
       btn.setAttribute('aria-label', 'Écouter cette invocation en arabe');
       btn.innerHTML = '<span class="audio-icon"><span class="audio-bars"><i></i><i></i><i></i></span><span class="audio-icon-glyph">🔊</span></span><span class="audio-btn-label">Écouter</span>';
-      btn.onclick = e => { e.stopPropagation(); toggleSpeakCard(btn, dhikrEl.textContent.trim(), audioSrc); };
+      btn.onclick = e => {
+        e.stopPropagation();
+        const total = parseInt(card.dataset.totalCount || '1', 10) || 1;
+        toggleSpeakCard(btn, dhikrEl.textContent.trim(), audioSrc, total);
+      };
       footer.appendChild(btn);
       card.appendChild(footer);
     });
@@ -2298,7 +2355,7 @@ async function cancelAllNotifs() {
     });
   } catch (e) {}
 }
-async function scheduleNotif(id, hour, minute, title, body) {
+async function scheduleNotif(id, hour, minute, title, body, mode) {
   const now = new Date();
   const target = new Date();
   target.setHours(hour, minute, 0, 0);
@@ -2316,7 +2373,8 @@ async function scheduleNotif(id, hour, minute, title, body) {
           allowWhileIdle: true
         },
         smallIcon: 'ic_launcher',
-        iconColor: '#9C7326'
+        iconColor: '#9C7326',
+        extra: { mode: mode || 'matin' }
       }]
     });
     return true;
@@ -2335,10 +2393,12 @@ async function applyNotifSchedule() {
   const [hS, mS] = notifTimeSoir.split(':').map(Number);
   await scheduleNotif(NOTIF_IDS.matin, hM, mM,
     '🌅 Adhkar du matin',
-    'Il est temps de réciter vos adhkar du matin. Qu\'Allah bénisse votre journée.');
+    'Il est temps de réciter vos adhkar du matin. Qu\'Allah bénisse votre journée.',
+    'matin');
   await scheduleNotif(NOTIF_IDS.soir, hS, mS,
     '🌙 Adhkar du soir',
-    'Il est temps de réciter vos adhkar du soir. Qu\'Allah apaise votre nuit.');
+    'Il est temps de réciter vos adhkar du soir. Qu\'Allah apaise votre nuit.',
+    'soir');
 }
 async function setNotifEnabled(v) {
   notifEnabled = v;
@@ -2383,6 +2443,17 @@ async function testNotification() {
     alert('Erreur lors du test : ' + e.message);
   }
 }
+// Écouter les clics sur les notifications pour ouvrir le bon mode
+if (CapacitorLocalNotifications) {
+  CapacitorLocalNotifications.addListener('localNotificationActionPerformed', (notif) => {
+    try {
+      const mode = notif && notif.notification && notif.notification.extra && notif.notification.extra.mode;
+      if (mode === 'matin' || mode === 'soir') {
+        setMode(mode);
+      }
+    } catch (e) { console.warn('Notif action erreur', e); }
+  });
+}
 // Initialisation : si des rappels étaient activés, on les reprogramme au lancement
 window.addEventListener('load', () => {
   setTimeout(() => {
@@ -2417,7 +2488,8 @@ function toggleReadAll() {
   const bloc = document.getElementById(currentMode === 'matin' ? 'blocMatin' : 'blocSoir');
   readAllQueue = Array.from(bloc.querySelectorAll('.card')).map(card => ({
     text: card.querySelector('.card-dhikr').textContent.trim(),
-    audioSrc: card.dataset.audioSrc
+    audioSrc: card.dataset.audioSrc,
+    repeatCount: parseInt(card.dataset.totalCount || '1', 10) || 1
   }));
   readAllIndex = 0;
   if (!readAllQueue.length) return;
@@ -2430,7 +2502,8 @@ function speakNextInQueue() {
   const item = readAllQueue[readAllIndex];
   playAudioOrFallback(item.audioSrc, item.text, {
     onend: () => { readAllIndex++; speakNextInQueue(); },
-    onerror: () => { readAllIndex++; speakNextInQueue(); }
+    onerror: () => { readAllIndex++; speakNextInQueue(); },
+    repeatCount: item.repeatCount
   });
 }
 function stopReadAll() {
@@ -2562,6 +2635,37 @@ function copyLink() {
     navigator.clipboard.writeText(APP_URL)
       .then(() => alert('✓ Lien copié !'));
   } else prompt('Copier ce lien :', APP_URL);
+}
+// ── Envoi d'un avis utilisateur (email ou WhatsApp pré-rempli) ─────────────
+const FEEDBACK_EMAIL = 'mouhamedbouraima122@gmail.com';
+const FEEDBACK_WHATSAPP = '2290156382714';
+function buildFeedbackTemplate() {
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('fr-FR', {day:'2-digit', month:'long', year:'numeric'});
+  const timeStr = now.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+  return {
+    intro: `Bonjour,\n\nJ'utilise l'application "أذكار الصباح والمساء" et je souhaite vous faire part de mon avis.\n\n`,
+    info: `\n\n--- Informations techniques ---\nDate : ${dateStr} à ${timeStr}\nPlateforme : ${isNative ? 'Application Android (APK)' : 'Site web'}\nVersion : 1.3.0\n`,
+    outro: `\n\nMerci pour cette belle application.\nQu'Allah vous récompense. 🤲`
+  };
+}
+function sendFeedbackEmail() {
+  const t = buildFeedbackTemplate();
+  const subject = encodeURIComponent('Avis utilisateur — Application Adhkar');
+  const body = encodeURIComponent(t.intro + '[Écrivez votre avis ici]\n\n' + t.info + t.outro);
+  const url = `mailto:${FEEDBACK_EMAIL}?subject=${subject}&body=${body}`;
+  window.location.href = url;
+}
+function sendFeedbackWhatsApp() {
+  const t = buildFeedbackTemplate();
+  const message = encodeURIComponent(t.intro + '[Écrivez votre avis ici]' + t.info + t.outro);
+  const url = `https://wa.me/${FEEDBACK_WHATSAPP}?text=${message}`;
+  if (isNative && window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) {
+    // Sur Android natif, on ouvre via le navigateur système pour que WhatsApp soit détecté
+    window.open(url, '_system');
+  } else {
+    window.open(url, '_blank');
+  }
 }
 async function downloadGuide() {
   const guideText = `📖 Guide d'installation — أذكار الصباح والمساء
