@@ -1509,7 +1509,7 @@ body{
       <small>Partager l'application avec vos proches</small>
     </div>
     <div class="modal-body">
-      <div class="share-url-box">invocation-du-matin-et-du-soir.netlify.app</div>
+      <div class="share-url-box" id="shareUrlBox">invocation-du-matin-et-du-soir.netlify.app</div>
       <div class="share-btns">
         <button class="sbtn sbtn-primary" onclick="shareApp()">
           <span>📤</span><span>Partager le lien</span>
@@ -1658,6 +1658,7 @@ body{
 
 <script>
 const APP_URL = 'https://invocation-du-matin-et-du-soir.netlify.app/';
+const APK_URL = 'https://github.com/mouhamed229-glitch/adhkar-app/releases/latest';
 
 // ── DÉTECTION CAPACITOR (APK natif) ────────────────────────────────────────
 const isNative = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
@@ -2399,6 +2400,15 @@ window.openModal = function(id) {
   if (id === 'modalNotif') {
     setTimeout(updateExactAlarmBanner, 200);
   }
+  if (id === 'modalShare') {
+    // Adapter la boîte URL au contexte (native Android = lien APK, sinon site web)
+    const box = document.getElementById('shareUrlBox');
+    if (box) {
+      box.textContent = isNative
+        ? 'github.com/mouhamed229-glitch/adhkar-app/releases/latest'
+        : 'invocation-du-matin-et-du-soir.netlify.app';
+    }
+  }
 };
 // ── FAB — Écouter tout (lecture séquentielle du bloc actif) ─────────────────
 function toggleReadAll() {
@@ -2524,12 +2534,14 @@ function installApp() {
 // ── PARTAGE ─────────────────────────────────────────────────────────────────
 async function shareApp() {
   const msg = `أذكار الصباح والمساء — تطبيق مجاني يعمل بدون إنترنت\n\nCette application contient les adhkar du matin et du soir de Hisn al-Muslim, avec traduction française. Elle fonctionne hors ligne.`;
+  // Choix intelligent du lien selon la plateforme de l'utilisateur
+  const shareUrl = isNative ? APK_URL : APP_URL;
   if (CapacitorShare) {
     try {
       await CapacitorShare.share({
         title: 'أذكار الصباح والمساء',
         text: msg,
-        url: APP_URL,
+        url: shareUrl,
         dialogTitle: 'Partager l\'application'
       });
       return;
@@ -2539,7 +2551,7 @@ async function shareApp() {
     }
   }
   if (navigator.share) {
-    navigator.share({title:'أذكار الصباح والمساء', text:msg, url:APP_URL})
+    navigator.share({title:'أذكار الصباح والمساء', text:msg, url:shareUrl})
       .catch(() => copyLink());
     return;
   }
