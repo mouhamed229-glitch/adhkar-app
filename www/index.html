@@ -1582,7 +1582,7 @@ body{
           </button>
         </div>
       </div>
-      <div class="install-steps" style="margin-top:16px">
+      <div class="install-steps" id="installStepsBlock" style="margin-top:16px">
         <h4>Comment installer l'application :</h4>
         <div class="install-step">
           <span class="step-icon">📱</span>
@@ -1707,23 +1707,23 @@ body{
         ⚠️ Les notifications ont été refusées. Autorisez-les dans les paramètres de votre téléphone : Paramètres → Applications → Adhkar → Notifications.
       </div>
       <div id="batteryBanner" style="display:none;margin-top:16px;padding:16px;background:var(--green2);border:1px solid var(--green3);border-radius:var(--r-md)">
-        <div style="font-family:var(--ui-font);font-weight:700;font-size:.9rem;color:var(--green);margin-bottom:10px;direction:ltr;text-align:left">
-          🔋 Pour recevoir vos rappels à l'heure exacte
-        </div>
-        <div style="font-family:Georgia,serif;font-size:.8rem;color:var(--ink2);line-height:1.7;margin-bottom:14px;direction:ltr;text-align:left">
-          Sur <strong>Samsung, Xiaomi, Huawei, Oppo, Vivo</strong> et d'autres marques, Android peut <strong>retarder les notifications</strong> pour économiser la batterie.<br><br>
-          <strong>Que faire :</strong><br>
-          1. Appuyez sur <strong>"Ouvrir les paramètres"</strong> ci-dessous<br>
-          2. Cherchez <strong>Adhkar</strong> (ou أذكار) dans la liste<br>
-          3. Choisissez <strong>"Non restreint"</strong> (ou "Ne pas optimiser")
-        </div>
-        <div style="display:flex;gap:8px;direction:ltr">
-          <button class="voice-test-btn" style="flex:1;margin-top:0" onclick="openBatterySettings()">
-            ⚙️ Ouvrir les paramètres
-          </button>
-          <button class="sbtn sbtn-secondary" style="flex:0 0 auto;padding:12px 16px;margin:0" onclick="dismissBatteryBanner()">
-            ✕
-          </button>
+        <div style="display:flex;align-items:flex-start;gap:10px;direction:ltr">
+          <div style="flex:1">
+            <div style="font-family:var(--ui-font);font-weight:700;font-size:.9rem;color:var(--green);margin-bottom:12px;direction:ltr;text-align:left">
+              🔋 Pour recevoir vos rappels à l'heure exacte
+            </div>
+            <div style="font-family:Georgia,serif;font-size:.8rem;color:var(--ink2);line-height:1.75;direction:ltr;text-align:left">
+              Sur <strong>Samsung, Xiaomi, Huawei, Oppo, Vivo</strong> et d'autres marques, Android peut <strong>retarder les notifications</strong> pour économiser la batterie.<br><br>
+              <strong>À faire une fois (2 minutes) :</strong><br><br>
+              <strong>1.</strong> Ouvrez les <strong>Paramètres</strong> du téléphone<br>
+              <strong>2.</strong> Allez dans <strong>Applications</strong><br>
+              <strong>3.</strong> Cherchez <strong>Adhkar</strong> (ou <strong>أذكار</strong>)<br>
+              <strong>4.</strong> Appuyez sur <strong>Batterie</strong><br>
+              <strong>5.</strong> Choisissez <strong>Non restreint</strong><br><br>
+              <span style="opacity:.7;font-style:italic">Le libellé peut légèrement varier selon le téléphone : "Ne pas optimiser" ou "Autoriser l'activité en arrière-plan".</span>
+            </div>
+          </div>
+          <button onclick="dismissBatteryBanner()" aria-label="Masquer" style="flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:transparent;border:1px solid var(--green3);color:var(--green);font-size:.9rem;cursor:pointer;touch-action:manipulation">✕</button>
         </div>
       </div>
       <div id="exactAlarmBanner" style="display:none;margin-top:16px;padding:14px 16px;background:var(--dawn2);border:1px solid var(--dawn);border-radius:var(--r-md);font-family:Georgia,serif;font-size:.82rem;color:var(--dawn);line-height:1.6">
@@ -2587,6 +2587,11 @@ window.openModal = function(id) {
       box.textContent = isNative
         ? 'github.com/mouhamed229-glitch/adhkar-app/releases/latest'
         : 'invocation-du-matin-et-du-soir.netlify.app';
+    }
+    // Sur l'APK Android, l'app est déjà installée : on cache les instructions d'installation PWA
+    const installBlock = document.getElementById('installStepsBlock');
+    if (installBlock) {
+      installBlock.style.display = isNative ? 'none' : '';
     }
   }
 };
