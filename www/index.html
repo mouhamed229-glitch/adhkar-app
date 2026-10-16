@@ -45,24 +45,35 @@
   --elev-3:0 10px 28px rgba(20,12,2,.32);
   --ui-font:'Google Sans Text','Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
+/* ── MODE SOMBRE DOUX — Brun foncé chaud, moins agressif pour les yeux ── */
 [data-theme=dark]{
-  --bg:#0D0904;--bg2:#191006;--bg3:#20150A;
-  --gold:#D6A845;--gold2:#EFC768;--gold3:#9C7326;
-  --ink:#F1E4C4;--ink2:#B99D6E;--ink3:#7A6440;
-  --green:#4C9C71;--green2:#0A1F12;--green3:#1D4A2C;
-  --dawn:#DE9250;--dawn2:#2A1200;
-  --dusk:#9B8AE0;--dusk2:#170D30;
-  --border:#3A2A10;--shadow:rgba(0,0,0,.45);
-  --jewel-bg:#0D0904;--jewel-bg2:#191006;--jewel-ink:#F1E4C4;--jewel-ink-dim:#8C7550;
-  --jewel-gold:#EFC768;--jewel-gold-dim:rgba(239,199,104,.18);
-  --jewel-dusk:#B8A9F0;--jewel-dusk-dim:rgba(184,169,240,.18);
+  --bg:#1C1610;--bg2:#261E15;--bg3:#302518;
+  --gold:#D6A845;--gold2:#EFC768;--gold3:#B98E3F;
+  --ink:#E8DCC3;--ink2:#B8A485;--ink3:#8A7757;
+  --green:#5EB186;--green2:#0F2418;--green3:#234D32;
+  --dawn:#E89F5E;--dawn2:#2E1A0A;
+  --dusk:#A99BE8;--dusk2:#1C1538;
+  --border:#3E2F1F;--shadow:rgba(0,0,0,.42);
+  --jewel-bg:#1C1610;--jewel-bg2:#261E15;--jewel-ink:#E8DCC3;--jewel-ink-dim:#947D5A;
+  --jewel-gold:#EFC768;--jewel-gold-dim:rgba(239,199,104,.20);
+  --jewel-dusk:#B8A9F0;--jewel-dusk-dim:rgba(184,169,240,.20);
   --m3-primary:#EFC768;--m3-on-primary:#3D2C00;
-  --m3-primary-container:#4A3610;--m3-on-primary-container:#F3E1B8;
-  --m3-secondary-container:#2A2050;--m3-on-secondary-container:#DCD4F5;
-  --m3-surface-1:#1E1509;--m3-outline:#4A3A18;
-  --elev-1:0 1px 3px rgba(0,0,0,.55),0 1px 2px rgba(0,0,0,.4);
-  --elev-2:0 4px 14px rgba(0,0,0,.55);
-  --elev-3:0 10px 28px rgba(0,0,0,.6);
+  --m3-primary-container:#4E3A15;--m3-on-primary-container:#F3E1B8;
+  --m3-secondary-container:#2F2456;--m3-on-secondary-container:#DCD4F5;
+  --m3-surface-1:#221A10;--m3-outline:#4E3E28;
+  --elev-1:0 1px 3px rgba(0,0,0,.42),0 1px 2px rgba(0,0,0,.3);
+  --elev-2:0 4px 14px rgba(0,0,0,.45);
+  --elev-3:0 10px 28px rgba(0,0,0,.5);
+}
+/* Fond avec un halo doré très subtil en haut — effet premium */
+[data-theme=dark] body {
+  background:
+    radial-gradient(ellipse 120% 40% at 50% 0%, rgba(228,181,76,.06), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+[data-theme=dark] .hero {
+  background: transparent;
 }
 
 
@@ -139,24 +150,21 @@ body{
 /* ── TABS ── */
 .tabs{
   display:flex;max-width:680px;margin:0 auto;
-  padding:10px 14px;gap:10px;
-  position:sticky;top:var(--safe-t);
+  padding:6px 14px 8px;gap:8px;
   background:var(--bg);z-index:10;
   border-bottom:1px solid var(--border);
 }
 .tab{
-  flex:1;padding:11px 10px;border-radius:10px;
+  flex:1;padding:8px 10px;border-radius:10px;
   border:1.5px solid var(--border);background:var(--bg2);
   cursor:pointer;text-align:center;
   transition:all .22s;font-family:'Amiri',serif;
-  font-size:1rem;color:var(--ink2);
+  font-size:.9rem;color:var(--ink2);
   touch-action:manipulation;
+  display:flex;align-items:center;justify-content:center;gap:6px;
 }
-.tab .tfr{
-  display:block;font-family:Georgia,serif;
-  font-size:.68rem;font-style:italic;margin-top:1px;opacity:.7;
-}
-.ti{display:block;font-size:1.3rem;margin-bottom:1px}
+.tab .tfr{display:none}
+.ti{font-size:1.1rem;line-height:1}
 .tab.is-active.tab-matin{background:var(--dawn2);border-color:var(--dawn);color:var(--dawn)}
 .tab.is-active.tab-soir{background:var(--dusk2);border-color:var(--dusk);color:var(--dusk)}
 
@@ -641,7 +649,128 @@ body{
 }
 .footer-signature-link:active{opacity:.6;background:var(--m3-primary-container)}
 
+/* ── Bouton copier ── */
+.copy-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-full);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--ink2);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s, transform .15s, color .2s, border-color .2s;
+  touch-action: manipulation;
+  margin-right: 8px;
+}
+.copy-btn:active { transform: scale(.92); }
+.copy-btn.copied {
+  background: var(--green2);
+  border-color: var(--green3);
+  color: var(--green);
+}
+/* ── Date Hijri dans le hero ── */
+.hero-hijri {
+  font-family: var(--ui-font);
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--gold3);
+  opacity: .85;
+  letter-spacing: .04em;
+  margin-top: 6px;
+  direction: ltr;
+  text-align: center;
+}
+/* ── Compteur global de progression ── */
+.global-progress {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 10px 14px 6px;
+  direction: ltr;
+}
+.global-progress-text {
+  font-family: var(--ui-font);
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--ink2);
+  text-align: center;
+  margin-bottom: 6px;
+  letter-spacing: .01em;
+}
+.global-progress-text #progressCount {
+  color: var(--gold2);
+  font-weight: 700;
+  font-size: .95rem;
+}
+.global-progress.mode-soir .global-progress-text #progressCount {
+  color: var(--dusk);
+}
+.global-progress-bar {
+  height: 5px;
+  background: var(--bg3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.global-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold3), var(--gold));
+  border-radius: 3px;
+  transition: width .4s cubic-bezier(.2, .8, .2, 1);
+}
+.global-progress.mode-soir .global-progress-fill {
+  background: linear-gradient(90deg, #C6B8F5, var(--dusk));
+}
+/* ── Badge notifications sur la cloche ── */
+#bellBtn {
+  position: relative;
+}
+#bellBtn.has-notif::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 10px;
+  height: 10px;
+  background: #E4B54C;
+  border-radius: 50%;
+  border: 2px solid var(--bg2);
+  box-shadow: 0 0 6px rgba(228, 181, 76, 0.6);
+  animation: bellPulse 2s ease-in-out infinite;
+}
+@keyframes bellPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
 /* ── CORRECTION DIRECTION RTL/LTR ── */
+/* Tous les modaux sont en français → LTR par défaut */
+.modal-body,
+.modal-title {
+  direction: ltr;
+}
+.modal-title {
+  text-align: center;
+}
+/* Les textes en arabe à l'intérieur gardent leur propre direction */
+.modal-body [lang="ar"],
+.modal-body .ar-text {
+  direction: rtl;
+  text-align: right;
+}
+/* Sous-titres des options de réglages (toujours en français) */
+.theme-opt-info, .voice-opt-info {
+  direction: ltr;
+  text-align: left;
+}
+/* Petits textes descriptifs */
+.modal-body small {
+  direction: ltr;
+  text-align: center;
+}
 /* Le body est en RTL pour l'arabe, mais les blocs français doivent être LTR */
 .aide-h,
 .aide-p,
@@ -715,6 +844,7 @@ body{
   <h1>أذكار الصباح والمساء</h1>
   <p class="hero-sub">من كتاب «حصن المسلم» — سعيد بن علي القحطاني</p>
   <p class="hero-sub2">D'après « La Citadelle du Musulman » — Cheikh Sa'id al-Qahtani</p>
+  <p class="hero-hijri" id="hijriDate" dir="ltr"></p>
   <div class="hero-line"></div>
   <button id="installBtn" onclick="installApp()">⬇ Installer l'application</button>
   <button id="bellBtn" onclick="openModal('modalNotif')" aria-label="Réglages des rappels quotidiens" style="
@@ -737,6 +867,15 @@ body{
   </div>
 </div>
 
+<!-- Compteur global de progression -->
+<div class="global-progress">
+  <div class="global-progress-text">
+    <span id="progressCount">0</span> / <span id="progressTotal">0</span> invocations terminées
+  </div>
+  <div class="global-progress-bar">
+    <div class="global-progress-fill" id="progressFill"></div>
+  </div>
+</div>
 <!-- Écouter tout — intégré juste sous les onglets -->
 <div class="listen-all-row">
   <button class="listen-all-btn" id="fabPlayAll" onclick="toggleReadAll()">
@@ -1481,7 +1620,7 @@ body{
           <span class="theme-opt-icon">🌙</span>
           <div class="theme-opt-info">
             <div class="theme-opt-name">Sombre</div>
-            <div class="theme-opt-desc">Fond noir, lecture nocturne</div>
+            <div class="theme-opt-desc">Fond brun foncé, reposant pour les yeux</div>
           </div>
           <span class="theme-opt-check">✓</span>
         </div>
@@ -1526,6 +1665,13 @@ body{
         </div>
       </div>
 
+      <div class="modal-section-title">🔄 Comptage</div>
+      <div style="font-family:Georgia,serif;font-size:.78rem;color:var(--ink2);margin:-4px 0 12px;line-height:1.6;direction:ltr;text-align:left">
+        Remet à zéro tous les compteurs du jour (matin et soir). Utile si vous voulez recommencer la session.
+      </div>
+      <div class="voice-test-btn" onclick="resetAllProgress()" style="background:linear-gradient(135deg,#E89F5E,#B0611F);margin-bottom:20px">
+        🔄 Réinitialiser le comptage du jour
+      </div>
       <div class="modal-section-title">🔊 Voix de secours</div>
       <div style="font-family:Georgia,serif;font-size:.78rem;color:var(--ink2);margin:-4px 0 12px;line-height:1.6">
         Par défaut, l'app joue <strong>uniquement vos enregistrements audio</strong>. Vous pouvez activer ici une voix de secours (celle du téléphone) qui prendra le relais si un fichier audio venait à manquer.
@@ -1630,7 +1776,7 @@ body{
 
       <div class="aide-block">
         <div class="aide-h"><span class="aide-num">4</span>Appui accidentel ?</div>
-        <div class="aide-p">Après avoir terminé une invocation, si vous appuyez par erreur, le compteur <strong>ne se remet pas à zéro immédiatement</strong> : un délai de <strong>6 secondes</strong> protège contre les resets accidentels. Après ce délai, un nouvel appui recommence le comptage.</div>
+        <div class="aide-p">Après avoir terminé une invocation, si vous appuyez par erreur, le compteur <strong>ne se remet pas à zéro immédiatement</strong> : un délai de <strong>12 secondes</strong> protège contre les resets accidentels. Après ce délai, un nouvel appui recommence le comptage.</div>
       </div>
 
       <div class="aide-block">
@@ -1826,6 +1972,7 @@ function setMode(m) {
   document.getElementById('navSoir').classList.toggle('active', !isMatin);
   const fab = document.getElementById('fabPlayAll');
   if (fab) fab.classList.toggle('mode-soir', !isMatin);
+  updateGlobalProgress();
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
@@ -2226,6 +2373,119 @@ function celebrateSessionComplete(mode) {
 let progressCounts = loadProgress();
 const lastCompletedAt = {}; // Empêche un reset accidentel pendant 6 secondes après la fin
 
+async function copyDhikrText(text, btn) {
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      // Fallback pour anciens WebView
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    // Feedback visuel
+    if (btn) {
+      btn.classList.add('copied');
+      btn.innerHTML = '✓';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = '📋';
+      }, 1500);
+    }
+    vibrateTap();
+  } catch (e) {
+    console.warn('Copie échec', e);
+    alert('Impossible de copier le texte.');
+  }
+}
+function updateHijriDate() {
+  const el = document.getElementById('hijriDate');
+  if (!el) return;
+  try {
+    const now = new Date();
+    const fmt = new Intl.DateTimeFormat('fr-FR-u-ca-islamic', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+    let txt = fmt.format(now);
+    txt = txt.replace(/\s*(ap\.?\s*J\.?-?C\.?|ère de l.?Hégire|AH|H)$/i, '').trim();
+    el.textContent = txt + ' H.';
+  } catch (e) {
+    el.style.display = 'none';
+  }
+}
+function resetAllProgress() {
+  if (!confirm('Réinitialiser tous les compteurs du jour ?\n\nLes adhkar du matin et du soir seront remis à zéro.')) return;
+  progressCounts = {};
+  Object.keys(lastCompletedAt).forEach(k => delete lastCompletedAt[k]);
+  saveProgress();
+  // Mettre à jour l'affichage de toutes les cartes
+  document.querySelectorAll('.card').forEach(card => {
+    if (typeof card._tapCounterRender === 'function') card._tapCounterRender();
+  });
+  updateGlobalProgress();
+  // Feedback visuel
+  vibrateTap();
+}
+function updateGlobalProgress() {
+  const el = document.querySelector('.global-progress');
+  if (!el) return;
+  const bloc = document.getElementById(currentMode === 'matin' ? 'blocMatin' : 'blocSoir');
+  if (!bloc) return;
+  // Adapter la couleur selon le mode
+  el.classList.toggle('mode-soir', currentMode === 'soir');
+  // Compter les cartes terminées
+  const cards = Array.from(bloc.querySelectorAll('.card'));
+  const trackable = cards.filter(c => parseInt(c.dataset.totalCount || '0', 10) > 0);
+  const total = trackable.length;
+  let done = 0;
+  trackable.forEach(c => {
+    const id = c.dataset.cardId;
+    const tot = parseInt(c.dataset.totalCount, 10);
+    const cur = progressCounts[id] !== undefined ? progressCounts[id] : 0;
+    if (cur >= tot) done++;
+  });
+  const countEl = document.getElementById('progressCount');
+  const totalEl = document.getElementById('progressTotal');
+  const fillEl = document.getElementById('progressFill');
+  if (countEl) countEl.textContent = done;
+  if (totalEl) totalEl.textContent = total;
+  if (fillEl) fillEl.style.width = total > 0 ? (done / total * 100) + '%' : '0%';
+  // Quand tout est terminé : petit message ✓
+  const textEl = el.querySelector('.global-progress-text');
+  if (textEl) {
+    if (total > 0 && done === total) {
+      textEl.innerHTML = '✓ Toutes les invocations terminées — Alhamdulillah';
+      textEl.style.color = 'var(--green)';
+      textEl.style.fontWeight = '700';
+    } else {
+      textEl.innerHTML = '<span id="progressCount">' + done + '</span> / <span id="progressTotal">' + total + '</span> invocations terminées';
+      textEl.style.color = '';
+      textEl.style.fontWeight = '';
+    }
+  }
+}
+function scrollToNextCard(currentCard) {
+  // Trouver la carte suivante dans le même bloc
+  let next = currentCard.nextElementSibling;
+  while (next && !next.classList.contains('card')) {
+    next = next.nextElementSibling;
+  }
+  if (!next) return; // Pas de carte suivante, on ne fait rien
+  // Vérifier qu'elle n'est pas déjà terminée
+  const nextId = next.dataset.cardId;
+  const nextTotal = parseInt(next.dataset.totalCount || '0', 10);
+  const nextCurrent = progressCounts[nextId] !== undefined ? progressCounts[nextId] : 0;
+  if (nextTotal > 0 && nextCurrent >= nextTotal) return; // Déjà terminée, on ne scrolle pas
+  // Scroll smooth vers la carte suivante
+  next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 function setupCounter(card, cardId, total) {
   const countEl = card.querySelector('.card-count');
   if (!countEl || !total) return;
@@ -2258,7 +2518,7 @@ function setupCounter(card, cardId, total) {
     if (current >= total) {
       // Protection anti-reset accidentel : on ignore les taps pendant 6 secondes
       // après la fin, pour ne pas relancer le comptage par erreur.
-      if (lastCompletedAt[cardId] && (now - lastCompletedAt[cardId]) < 6000) {
+      if (lastCompletedAt[cardId] && (now - lastCompletedAt[cardId]) < 12000) {
         return;
       }
       // Après 6 secondes : un appui de plus recommence à zéro.
@@ -2268,6 +2528,7 @@ function setupCounter(card, cardId, total) {
       render();
       vibrateTap();
       checkSessionCompletion(mode);
+      updateGlobalProgress();
       return;
     }
     progressCounts[cardId] = current + 1;
@@ -2278,6 +2539,9 @@ function setupCounter(card, cardId, total) {
       vibrateDone();
       replay('just-completed');
       checkSessionCompletion(mode);
+      updateGlobalProgress();
+      // Auto-scroll vers la carte suivante après un court délai
+      setTimeout(() => scrollToNextCard(card), 900);
     } else {
       vibrateTap();
       replay('just-tapped');
@@ -2286,6 +2550,7 @@ function setupCounter(card, cardId, total) {
 
   render();
   card._tapCounterFn = tap;
+  card._tapCounterRender = render;
 }
 
 // Zone de tap unique : toute la carte, sauf le bouton 🔊 (dans son propre
@@ -2324,6 +2589,17 @@ function enhanceCards() {
       // de la zone de comptage (qui couvre le reste de la carte).
       const footer = document.createElement('div');
       footer.className = 'card-footer-actions';
+      // Bouton Copier
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-btn';
+      copyBtn.setAttribute('aria-label', 'Copier le texte arabe');
+      copyBtn.innerHTML = '📋';
+      copyBtn.onclick = e => {
+        e.stopPropagation();
+        copyDhikrText(dhikrEl.textContent.trim(), copyBtn);
+      };
+      footer.appendChild(copyBtn);
+      // Bouton Écouter
       const btn = document.createElement('button');
       btn.className = 'audio-btn';
       btn.setAttribute('aria-label', 'Écouter cette invocation en arabe');
@@ -2348,11 +2624,18 @@ let CapacitorLocalNotifications = null;
 if (isNative && window.Capacitor.Plugins) {
   CapacitorLocalNotifications = window.Capacitor.Plugins.LocalNotifications || null;
 }
-const NOTIF_IDS = { matin: 1001, soir: 1002 };
+const NOTIF_IDS = { matin: 1000, soir: 2000 };
+const NOTIF_DAYS_AHEAD = 7; // Programme 7 notifications (une par jour)
 let notifEnabled = localStorage.getItem('adhkar-notif-enabled') === 'true';
 let notifTimeMatin = localStorage.getItem('adhkar-notif-matin') || '06:30';
 let notifTimeSoir  = localStorage.getItem('adhkar-notif-soir')  || '18:30';
+function updateBellBadge() {
+  const bell = document.getElementById('bellBtn');
+  if (!bell) return;
+  bell.classList.toggle('has-notif', notifEnabled);
+}
 function renderNotifUI() {
+  updateBellBadge();
   const toggle = document.getElementById('notifToggleChips');
   if (toggle) {
     toggle.querySelectorAll('.opt-chip').forEach(c => {
@@ -2455,36 +2738,37 @@ async function ensureNotifPermission() {
 async function cancelAllNotifs() {
   if (!CapacitorLocalNotifications) return;
   try {
-    await CapacitorLocalNotifications.cancel({
-      notifications: [
-        { id: NOTIF_IDS.matin },
-        { id: NOTIF_IDS.soir }
-      ]
-    });
-  } catch (e) {}
+    const ids = [];
+    for (let d = 0; d < NOTIF_DAYS_AHEAD + 1; d++) {
+      ids.push({ id: NOTIF_IDS.matin + d });
+      ids.push({ id: NOTIF_IDS.soir + d });
+    }
+    // Nettoyer aussi les anciens IDs hérités
+    ids.push({ id: 1001 }, { id: 1002 }, { id: 9999 });
+    await CapacitorLocalNotifications.cancel({ notifications: ids });
+  } catch (e) { console.warn('cancelAllNotifs erreur', e); }
 }
-async function scheduleNotif(id, hour, minute, title, body, mode) {
+async function scheduleNotif(baseId, hour, minute, title, body, mode) {
   const now = new Date();
-  const target = new Date();
-  target.setHours(hour, minute, 0, 0);
-  if (target <= now) target.setDate(target.getDate() + 1);
-  try {
-    await CapacitorLocalNotifications.schedule({
-      notifications: [{
-        id: id,
-        title: title,
-        body: body,
-        schedule: {
-          at: target,
-          repeats: true,
-          every: 'day',
-          allowWhileIdle: true
-        },
-        smallIcon: 'ic_launcher',
-        iconColor: '#9C7326',
-        extra: { mode: mode || 'matin' }
-      }]
+  const notifications = [];
+  for (let d = 0; d < NOTIF_DAYS_AHEAD; d++) {
+    const target = new Date();
+    target.setDate(target.getDate() + d);
+    target.setHours(hour, minute, 0, 0);
+    if (target <= now) continue;
+    notifications.push({
+      id: baseId + d,
+      title: title,
+      body: body,
+      schedule: { at: target, allowWhileIdle: true },
+      smallIcon: 'ic_launcher',
+      iconColor: '#9C7326',
+      extra: { mode: mode || 'matin' }
     });
+  }
+  if (!notifications.length) return true;
+  try {
+    await CapacitorLocalNotifications.schedule({ notifications });
     return true;
   } catch (e) {
     console.warn('Schedule erreur', e);
@@ -2566,6 +2850,8 @@ if (CapacitorLocalNotifications) {
 window.addEventListener('load', () => {
   setTimeout(() => {
     renderNotifUI();
+    updateGlobalProgress();
+    updateHijriDate();
     if (notifEnabled && CapacitorLocalNotifications) {
       applyNotifSchedule();
       updateExactAlarmBanner();
