@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "أذكار الصباح والمساء",
-  "short_name": "أذكار",
+  "name": "Invocations - Matin & Soir",
+  "short_name": "Invocations",
   "description": "أذكار الصباح والمساء من حصن المسلم مع الترجمة الفرنسية",
   "start_url": "./index.html",
   "scope": "./",
