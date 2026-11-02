@@ -2098,7 +2098,7 @@ function applyTheme(t) {
   document.getElementById('themeNavIcon').textContent = themeIcons[t];
   document.getElementById('themeColorMeta').content = actual === 'dark' ? '#0D0904' : '#9C7326';
   ['light','dark','auto'].forEach(x => {
-    document.getElementById('opt-'+x).classList.toggle('selected', x === t);
+    document.getElementById('opt-'+x)?.classList.toggle('selected', x === t);
   });
 }
 function setTheme(t) {
@@ -3528,3 +3528,4 @@ else window.addEventListener('load', () => setTimeout(hideSplash, 800));
 </script>
 </body>
 </html>
+
