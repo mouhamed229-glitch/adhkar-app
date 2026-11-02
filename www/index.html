@@ -2021,12 +2021,14 @@ body.essential-mode .card-fadl {
   </div>
 </div>
 
+<script src="cordova.js"></script>
 <script>
 const APP_URL = 'https://invocation-du-matin-et-du-soir.netlify.app/';
 const APK_URL = 'https://github.com/mouhamed229-glitch/adhkar-app/releases/latest';
 
 // ── DÉTECTION CAPACITOR (APK natif) ────────────────────────────────────────
 // Activer le mode arrière-plan (Foreground Service) si on est sur Android
+/*
 if (window.cordova && window.cordova.plugins && window.cordova.plugins.backgroundMode) {
   window.cordova.plugins.backgroundMode.enable();
   window.cordova.plugins.backgroundMode.setDefaults({
@@ -2036,6 +2038,7 @@ if (window.cordova && window.cordova.plugins && window.cordova.plugins.backgroun
     silent: true
   });
 }
+*/
 const isNative = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
 let CapacitorHaptics = null;
 let CapacitorShare = null;
