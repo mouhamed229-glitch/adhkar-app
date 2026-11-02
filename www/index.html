@@ -2848,7 +2848,7 @@ function enhanceCards() {
       copyBtn.className = 'copy-btn';
       copyBtn.setAttribute('aria-label', 'Copier le texte arabe');
       copyBtn.innerHTML = 'ðŸ“‹';
-      copybtn.onclick = e => {
+      copyBtn.onclick = e => {
         e.stopPropagation();
         const total = parseInt(card.dataset.totalCount || '1', 10) || 1;
         let audioRepeats = 1;
@@ -3528,5 +3528,6 @@ else window.addEventListener('load', () => setTimeout(hideSplash, 800));
 </script>
 </body>
 </html>
+
 
 
