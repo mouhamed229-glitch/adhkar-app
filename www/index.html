@@ -1076,6 +1076,34 @@ body.essential-mode .card-fadl {
   .tabs{gap:7px;padding:8px 10px}
 }
 </style>
+<style id="css-fix-modals">
+/* Design des fenêtres (Modales) */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+.modal-overlay.open { display: flex; }
+.modal-content { background: #2a2016; border: 1px solid #c8a96a; border-radius: 16px; width: 90%; max-width: 400px; max-height: 85vh; overflow-y: auto; padding: 20px; color: #f4e8d1; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(200, 169, 106, 0.3); padding-bottom: 12px; margin-bottom: 15px; }
+.modal-header h2 { margin: 0; font-size: 20px; color: #c8a96a; }
+.close-btn { background: #3a2d1e; border: none; color: #c8a96a; font-size: 18px; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.modal-body p { line-height: 1.6; font-size: 15px; }
+.btn-primary { background: #c8a96a; color: #1a120b; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; width: 100%; margin-top: 15px; cursor: pointer; font-size: 16px; }
+/* Design de l'accordéon (Menu Aide) */
+.accordion-item { border: 1px solid rgba(200, 169, 106, 0.2); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+.accordion-btn { display: flex; align-items: center; width: 100%; text-align: left; padding: 15px; background: #221810; color: #f4e8d1; border: none; font-size: 15px; cursor: pointer; }
+.accordion-btn::before { content: "▶"; color: #c8a96a; margin-right: 10px; font-size: 12px; transition: transform 0.3s; }
+.accordion-btn.active::before { transform: rotate(90deg); }
+</style>
+<style id="fix-rtl-french">
+  /* Force l'écriture de gauche à droite pour le français et corrige la ponctuation */
+  .modal-body p, .tutorial-text, .translation, .translation-text, .french-text, .accordion-btn {
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+    text-align: center !important;
+  }
+  /* Pour les éléments qui doivent être alignés à gauche */
+  .accordion-btn {
+    text-align: left !important;
+  }
+</style>
 </head>
 <body>
 
@@ -2617,7 +2645,7 @@ async function copyDhikrText(text, btn) {
       btn.innerHTML = '✓';
       setTimeout(() => {
         btn.classList.remove('copied');
-        btn.innerHTML = '📋';
+        btn.innerHTML = '\&#x1F50A;';
       }, 1500);
     }
     vibrateTap();
@@ -2847,7 +2875,7 @@ function enhanceCards() {
       const copyBtn = document.createElement('button');
       copyBtn.className = 'copy-btn';
       copyBtn.setAttribute('aria-label', 'Copier le texte arabe');
-      copyBtn.innerHTML = '??';
+      copyBtn.innerHTML = '\&#x1F4CB;';
       copyBtn.onclick = e => {
         e.stopPropagation();
         navigator.clipboard.writeText(dhikrEl.textContent.trim());
@@ -2858,7 +2886,7 @@ function enhanceCards() {
       // --- BOUTON ECOUTER ---
       const btn = document.createElement('button');
       btn.className = 'listen-btn';
-      btn.innerHTML = '??';
+      btn.innerHTML = '\&#x1F50A;';
       btn.onclick = e => {
         e.stopPropagation();
         const total = parseInt(card.dataset.totalCount || '1', 10) || 1;
@@ -3572,6 +3600,13 @@ else window.addEventListener('load', () => setTimeout(hideSplash, 800));
     <div id="voiceOptionsWrap" style="display:none;">
       <div id="voiceOptions"></div>
     </div>
+<script id="fix-focus-mode">
+window.toggleFocusMode = function(element) {
+    // Sécurité anti-crash
+    console.log("Mode Focus activé");
+    document.body.classList.toggle('focus-mode-active');
+};
+</script>
 </body>
 </html>
 
