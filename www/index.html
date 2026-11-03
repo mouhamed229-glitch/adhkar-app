@@ -2843,17 +2843,28 @@ function enhanceCards() {
       // de la zone de comptage (qui couvre le reste de la carte).
       const footer = document.createElement('div');
       footer.className = 'card-footer-actions';
-      // Bouton Copier
+      // --- BOUTON COPIER ---
       const copyBtn = document.createElement('button');
       copyBtn.className = 'copy-btn';
       copyBtn.setAttribute('aria-label', 'Copier le texte arabe');
-      copyBtn.innerHTML = 'ðŸ“‹';
+      copyBtn.innerHTML = '📋';
       copyBtn.onclick = e => {
+        e.stopPropagation();
+        navigator.clipboard.writeText(dhikrEl.textContent.trim());
+        copyBtn.innerHTML = '✅';
+        setTimeout(() => copyBtn.innerHTML = '📋', 1500);
+      };
+      footer.appendChild(copyBtn);
+      // --- BOUTON ECOUTER ---
+      const btn = document.createElement('button');
+      btn.className = 'listen-btn';
+      btn.innerHTML = '🔊';
+      btn.onclick = e => {
         e.stopPropagation();
         const total = parseInt(card.dataset.totalCount || '1', 10) || 1;
         let audioRepeats = 1;
-        if (dhikrEl.textContent.includes('Ø³Ø¨Ø­Ø§Ù† Ø§Ù„Ù„Ù‡ ÙˆØ¨Ø­Ù…Ø¯Ù‡') && total === 100) audioRepeats = 3;
-        if (dhikrEl.textContent.includes('Ø£Ø³ØªØºÙØ± Ø§Ù„Ù„Ù‡ ÙˆØ£ØªÙˆØ¨ Ø¥Ù„ÙŠÙ‡') && total === 100) audioRepeats = 6;
+        if (dhikrEl.textContent.includes('سبحان الله وبحمده') && total === 100) audioRepeats = 3;
+        if (dhikrEl.textContent.includes('أستغفر الله وأتوب إليه') && total === 100) audioRepeats = 6;
         const fullPlays = Math.floor(total / audioRepeats);
         const remainderFraction = (total % audioRepeats) !== 0 ? audioRepeats : null;
         toggleSpeakCard(btn, dhikrEl.textContent.trim(), audioSrc, fullPlays, remainderFraction);
@@ -3528,6 +3539,7 @@ else window.addEventListener('load', () => setTimeout(hideSplash, 800));
 </script>
 </body>
 </html>
+
 
 
 
